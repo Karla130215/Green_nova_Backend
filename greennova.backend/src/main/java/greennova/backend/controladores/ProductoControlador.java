@@ -8,37 +8,48 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/productos")
+@RequestMapping("/api/productos/")
 public class ProductoControlador {
 
+    private final ProductoServicio productoServicio;
+
     @Autowired
-    private ProductoServicio productoServicio;
+    public ProductoControlador(ProductoServicio servicio){
+        this.productoServicio = servicio;
+    }
 
     @GetMapping
-    public List<Producto> listarProductos() {
-        return productoServicio.obtenerTodos();
-    }
+    public List<Producto> getProductos() {
+        return productoServicio.getProductos();
+    }//getProductos obtiene la lista de todos los productos desde ProductoServicio
 
-    @GetMapping("/{id}")
-    public Producto obtenerProducto(@PathVariable long id) {
-        return productoServicio.obtenerPorId(id);
-    }
+    @GetMapping("{productoId}")
+    public Producto getProducto(@PathVariable("productoId") Long id) {
+        return productoServicio.getProducto(id);
+    }//getProdcuto obtiene el producto por ID
+
+    @DeleteMapping("{productoId}")
+    public Producto deleteProducto(@PathVariable("productoId") Long id){
+        return productoServicio.deleteProducto(id);
+    }//deleteProdcuto Elimina el producto por id
 
     @PostMapping
     public Producto crearProducto(@RequestBody Producto producto) {
-        return productoServicio.guardar(producto);
-    }
+        return productoServicio.crearProducto(producto);
+    }//crearProducto Crea un nuevo producto
 
-    @PutMapping("/{id}")
-    public Producto actualizarProducto(@PathVariable long id, @RequestBody Producto producto) {
-        return productoServicio.actualizar(id, producto);
-    }
+    @PutMapping("{productoId}")
+    public Producto actualizarProducto(@PathVariable("productoId") Long id,
+                                       @RequestParam(value = "nombre", required = false) String nombre,
+                                       @RequestParam(value = "tipoProducto", required = false) String tipoProducto,
+                                       @RequestParam(value = "precio", required = false)Double precio,
+                                       @RequestParam(value = "imagen", required = false)String imagen,
+                                       @RequestParam(value = "rLuz", required = false)String rLuz,
+                                       @RequestParam(value = "fRiego", required = false)String fRiego,
+                                       @RequestParam(value = "funcion", required = false)String funcion,
+                                       @RequestParam(value = "descripcion", required = false)String descripcion)
+            {
+        return productoServicio.actualizarProducto(id, nombre, tipoProducto, precio, imagen, rLuz, fRiego, funcion, descripcion);
+    }//actualizaProducto
 
-    @DeleteMapping("/{id}")
-    public String eliminarProducto(@PathVariable long id) {
-        if (productoServicio.eliminar(id)) {
-            return "Producto eliminado con éxito.";
-        }
-        return "Producto no encontrado.";
-    }
-}
+}//class ProductoControlador

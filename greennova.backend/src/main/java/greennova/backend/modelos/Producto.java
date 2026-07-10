@@ -1,26 +1,41 @@
 package greennova.backend.modelos;
 
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "productos")
 public class Producto {
 
-private Long idProducto;
-private static long total = 0L;
-private String nombre;
-private String tipoProducto;
-private Double precio;
-private String imagen;
-private String rLuz;
-private String fRiego;
-private String funcion;
-private String descripcion;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "productoId", unique = true, nullable = false)
+    private Long id;
 
-public Producto(){
-}// constructor vacio
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
+
+    @Column(name = "tipoProducto", nullable = false)
+    private String tipoProducto;
+
+    @Column(name = "precio", nullable = false)
+    private Double precio;
+
+    @Column(name = "imagen", nullable = false)
+    private String imagen;
+
+    @Column(name = "rLuz", nullable = false)
+    private String rLuz;
+
+    @Column(name = "fRiego", nullable = false)
+    private String fRiego;
+
+    @Column(name = "funcion", nullable = false)
+    private String funcion;
+
+    @Column(name = "descripcion", nullable = false)
+    private String descripcion;
 
 public Producto (String nombre, String tipoProducto, Double precio, String imagen, String rLuz, String fRiego,String funcion,String descripcion ){
-
-    Producto.total++;
-    this.idProducto=Producto.total;
     this.nombre = nombre;
     this.tipoProducto = tipoProducto;
     this.precio = precio;
@@ -31,12 +46,11 @@ public Producto (String nombre, String tipoProducto, Double precio, String image
     this.descripcion = descripcion;
 }// constructor Producto
 
-    public Long getId() {
-        return idProducto;
-    }
+    public Producto(){
+    }// constructor vacio (requisito JPA)
 
-    public void setId(Long id) {
-        this.idProducto = idProducto;
+    public Long getId() {
+        return id;
     }
 
     public String getNombre() {
@@ -102,19 +116,4 @@ public Producto (String nombre, String tipoProducto, Double precio, String image
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-    @Override
-    public String toString() {
-        return "Producto{" +
-                "id=" + idProducto +
-                ", nombre='" + nombre + '\'' +
-                ", tipoProducto='" + tipoProducto + '\'' +
-                ", precio=" + precio +
-                ", imagen='" + imagen + '\'' +
-                ", rLuz='" + rLuz + '\'' +
-                ", fRiego='" + fRiego + '\'' +
-                ", funcion='" + funcion + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                '}';
-    }// to string
 }// class producto
