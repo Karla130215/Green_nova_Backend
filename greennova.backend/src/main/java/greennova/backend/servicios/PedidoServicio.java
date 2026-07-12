@@ -1,6 +1,8 @@
 package greennova.backend.servicios;
 
 import greennova.backend.modelos.Pedido;
+import greennova.backend.repositorios.PedidoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,50 +11,55 @@ import java.util.List;
 @Service
 public class PedidoServicio {
 
-    private final ArrayList<Pedido> listaPedidos = new ArrayList<>();
+    // private final ArrayList<Pedido> listaPedidos = new ArrayList<>();
+    private final PedidoRepository pedidoRepository;
+
+    @Autowired
+    public PedidoServicio(PedidoRepository pedidoRepository) {
+        this.pedidoRepository = pedidoRepository;
+    }
 
     // Obtener todos los pedidos
     public List<Pedido> obtenerTodos() {
-        return listaPedidos;
+
+        return pedidoRepository.findAll();
     }// obtener todos
 
     // Obtener pedido por ID
-    public Pedido obtenerPorId(long id) {
-        for (Pedido pedido : listaPedidos) {
-            if (pedido.getIdPedido() == id) {
-                return pedido;
-            }
-        }
-        return null;
+    public Pedido obtenerPorId(Long id) {
+
+        return pedidoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("El pedido por el id [" + id + "] no existe"));
     }// obtener por id
 
-    // Guardar un nuevo pedido
-    public Pedido guardar(Pedido pedido) {
-        listaPedidos.add(pedido);
+    // Eliminar un pedido por ID
+    public Pedido eliminar(Long id) {
+        Pedido pedido = null;
+        if (pedidoRepository.existsById(id)) {
+            pedido = pedidoRepository.findById(id).get();
+            pedidoRepository.deleteById(id);
+        }
         return pedido;
-    }// guardar
+
+    }// eliminar
+
+    // Crear un nuevo pedido
+    public Pedido crearPedido(Pedido pedido) {
+        return pedidoRepository.save(pedido);
+    }// crear
 
     // Actualizar un pedido existente
-    public Pedido actualizar(long id, Pedido pedidoActualizado) {
-        for (int i = 0; i < listaPedidos.size(); i++) {
-            if (listaPedidos.get(i).getIdPedido() == id) {
-                pedidoActualizado.setIdPedido(id);
-                listaPedidos.set(i, pedidoActualizado);
-                return pedidoActualizado;
-            }
+    public Pedido actualizar(long id, String fechaPedido, Double total, String estado) {
+        Pedido pedido = null;
+        if (pedidoRepository.existsById(id)) {
+            Pedido p = pedidoRepository.findById(id).get();
+            if (fechaPedido != null) p.setFechaPedido(fechaPedido);
+            if (total != null) p.setTotal(total);
+            if (estado != null) p.setEstado(estado);
+            pedido = pedidoRepository.save(p);
+
         }
-        return null;
+        return pedido;
     }// actualizar
 
-    // Eliminar un pedido por ID
-    public boolean eliminar(long id) {
-        for (int i = 0; i < listaPedidos.size(); i++) {
-            if (listaPedidos.get(i).getIdPedido() == id) {
-                listaPedidos.remove(i);
-                return true;
-            }
-        }
-        return false;
-    }// eliminar
 
 }// clase PedidoServicio

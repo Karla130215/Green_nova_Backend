@@ -1,22 +1,31 @@
 package greennova.backend.modelos;
 
-public class Pedido {
+import jakarta.persistence.*;
 
-private long idPedido;
-private static long totalid = 0L;
+@Entity
+@Table(name="pedido")
+public class Pedido {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column(name = "pedidoId",unique=true,nullable = false)
+private Long idPedido;
+@Column(name = "fechaPedido",nullable = false)
 private String fechaPedido;
+@Column(name = "total",nullable = false)
 private Double total;
+@Column(name = "estado",nullable = false)
 private String estado;
 // llave foranea
-private Long idUsuario;
+@ManyToOne(fetch = FetchType.LAZY) // LAZY evita cargar el usuario si no lo necesitas, mejorando rendimiento
+@JoinColumn(name = "id_usuario", nullable = false)
+private long idUsuario;
 
 
 public Pedido(){
 }//clase vacia
 
 public Pedido(String fechaPedido, Double total, String estado){
-    Pedido.totalid++;
-    this.idPedido=Pedido.totalid;
+
     this.fechaPedido = fechaPedido;
     this.total = total;
     this.estado = estado;
