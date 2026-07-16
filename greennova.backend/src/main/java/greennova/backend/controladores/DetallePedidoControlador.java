@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/detalles-pedidos")
+@RequestMapping("/api/detalles-pedidos/")
 public class DetallePedidoControlador {
 
     @Autowired
@@ -20,7 +20,7 @@ public class DetallePedidoControlador {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping(path = "{id}")
     public DetallePedido obtenerDetalle(@PathVariable long id) {
         return detallePedidoServicio.obtenerPorId(id);
     }
@@ -30,16 +30,18 @@ public class DetallePedidoControlador {
         return detallePedidoServicio.guardar(detallePedido);
     }
 
-    @PutMapping("/{id}")
-    public DetallePedido actualizarDetalle(@PathVariable long id, @RequestBody DetallePedido detallePedido) {
-        return detallePedidoServicio.actualizar(id, detallePedido);
+    @PutMapping(path = "{id}")
+    public DetallePedido actualizarDetalle(@PathVariable long id,
+                                           @PathVariable(value ="cantidad",required = false) int cantidad ,
+                                           @PathVariable (value = "precioUnidad",required=false) double precioUnidad) {
+
+    return detallePedidoServicio.actualizar(id,cantidad,precioUnidad);
     }
 
-    @DeleteMapping("/{id}")
-    public String eliminarDetalle(@PathVariable long id) {
-        if (detallePedidoServicio.eliminar(id)) {
-            return "Detalle de pedido eliminado con éxito.";
-        }
-        return "Detalle no encontrado.";
+
+    @DeleteMapping(path = "{id}")
+    public DetallePedido eliminarDetalle(@PathVariable long id) {
+
+        return detallePedidoServicio.eliminar(id);
     }
 }
