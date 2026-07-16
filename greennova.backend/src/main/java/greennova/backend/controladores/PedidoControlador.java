@@ -16,7 +16,7 @@ public class PedidoControlador {
         this.pedidoService = pedidoService;
     }
 
-//Se crea los endpoints
+//Se hace CRUD
     @GetMapping // http://localhost:8080/api/pedidos/
     public List<Pedido> listarPedidos() {
 
