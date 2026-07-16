@@ -47,9 +47,9 @@ public class ProductoControlador {
                                        @RequestParam(value = "rLuz", required = false)String rLuz,
                                        @RequestParam(value = "fRiego", required = false)String fRiego,
                                        @RequestParam(value = "funcion", required = false)String funcion,
-                                       @RequestParam(value = "descripcion", required = false)String descripcion)
-            {
-        return productoServicio.actualizarProducto(id, nombre, tipoProducto, precio, imagen, rLuz, fRiego, funcion, descripcion);
+                                       @RequestParam(value = "descripcion", required = false)String descripcion,
+                                       @RequestParam(value = "categoriaId", required = false)Long categoriaId) {
+        return productoServicio.actualizarProducto(id, nombre, tipoProducto, precio, imagen, rLuz, fRiego, funcion, descripcion, categoriaId);
     }//actualizaProducto
 
 }//class ProductoControlador

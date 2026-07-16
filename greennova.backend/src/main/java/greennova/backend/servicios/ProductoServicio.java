@@ -1,6 +1,8 @@
 package greennova.backend.servicios;
 
+import greennova.backend.modelos.Categoria;
 import greennova.backend.modelos.Producto;
+import greennova.backend.repositorios.CategoriaRepository;
 import greennova.backend.repositorios.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,10 +14,12 @@ import java.util.List;
 public class ProductoServicio {
 
     private final ProductoRepository productoRepository;
+    private final CategoriaRepository categoriaRepository;
 
     @Autowired
-    public ProductoServicio(ProductoRepository repository) {
+    public ProductoServicio(ProductoRepository repository, CategoriaRepository categoriaRepository) {
         this.productoRepository = repository;
+        this.categoriaRepository = categoriaRepository;
     }//constructor ProductoServicio
 
     public List<Producto> getProductos() {
@@ -42,7 +46,7 @@ public class ProductoServicio {
         return productoRepository.save(producto);
     }
 
-    public Producto actualizarProducto(Long id, String nombre, String tipoProducto, Double precio, String imagen, String rLuz, String fRiego, String funcion, String descripcion) {
+    public Producto actualizarProducto(Long id, String nombre, String tipoProducto, Double precio, String imagen, String rLuz, String fRiego, String funcion, String descripcion, Long categoriaId) {
         Producto producto = null;
         if (productoRepository.existsById(id)) {
             Producto p = productoRepository.findById(id).get();
@@ -55,7 +59,12 @@ public class ProductoServicio {
             if (fRiego != null) p.setfRiego(fRiego);
             if (funcion != null) p.setFuncion(funcion);
             if (descripcion != null) p.setDescripcion(descripcion);
-
+            if(categoriaId != null) {
+                if(categoriaRepository.existsById(categoriaId)) {
+                    Categoria categoria = categoriaRepository.findById(categoriaId).get();
+                    p.setCategoria(categoria);
+                }//if
+            }//ifCategoria
             producto = productoRepository.save(p);
         }//if
         return producto;

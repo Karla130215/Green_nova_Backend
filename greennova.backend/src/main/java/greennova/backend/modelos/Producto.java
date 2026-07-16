@@ -1,5 +1,6 @@
 package greennova.backend.modelos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -34,6 +35,12 @@ public class Producto {
 
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
+
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "categoriaId")// referencia
+    private Categoria categoria; //clave foranea categoriaId
+
 
 public Producto (String nombre, String tipoProducto, Double precio, String imagen, String rLuz, String fRiego,String funcion,String descripcion ){
     this.nombre = nombre;
@@ -115,5 +122,29 @@ public Producto (String nombre, String tipoProducto, Double precio, String image
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }//getCategoria
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }//setCategoria
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", tipoProducto='" + tipoProducto + '\'' +
+                ", precio=" + precio +
+                ", imagen='" + imagen + '\'' +
+                ", rLuz='" + rLuz + '\'' +
+                ", fRiego='" + fRiego + '\'' +
+                ", funcion='" + funcion + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", categoria=" + categoria +
+                '}';
     }
 }// class producto
