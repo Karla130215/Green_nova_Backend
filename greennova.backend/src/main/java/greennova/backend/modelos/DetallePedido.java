@@ -1,11 +1,22 @@
 package greennova.backend.modelos;
 
-public class DetallePedido {
 
-private long idDetalle;
-private static long total = 0L;
+
+import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+
+@Entity
+@Table(name = "detallePedido")
+public class DetallePedido {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column(name="idDetalle",unique=true,nullable=false)
+private Long idDetalle;
+@Column(name = "cantidad",nullable = false)
 private int cantidad;
-private double precioUnidad;
+@Column(name = "precioUnidad",nullable = false)
+private Double precioUnidad;
+//Llaves Foraneas
 private Long idProducto;
 private Long idPedido;
 
@@ -13,8 +24,7 @@ public DetallePedido(){
 }// constructor vacio
 
 public DetallePedido(int cantidad, double precioUnidad, Long idProducto, Long idPedido){
-    DetallePedido.total++;
-    this.idDetalle=DetallePedido.total;
+
     this.cantidad = cantidad;
     this.precioUnidad = precioUnidad;
     this.idProducto = idProducto;

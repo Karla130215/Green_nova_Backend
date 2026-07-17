@@ -8,37 +8,41 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/pedidos")
+@RequestMapping(path="/api/pedidos/") // http://localhost:8080/api/pedidos/
 public class PedidoControlador {
-
+    private final PedidoServicio pedidoService;//se inyecta dependencia con @Autowired
     @Autowired
-    private PedidoServicio pedidoServicio;
-
-    @GetMapping
-    public List<Pedido> listarPedidos() {
-        return pedidoServicio.obtenerTodos();
+    public PedidoControlador(PedidoServicio pedidoService) {
+        this.pedidoService = pedidoService;
     }
 
-    @GetMapping("/{id}")
+//Se hace CRUD
+    @GetMapping // http://localhost:8080/api/pedidos/
+    public List<Pedido> listarPedidos() {
+
+        return pedidoService.obtenerTodos();
+    }
+
+    @GetMapping(path = "{id}") //localhost:8080/api/pedidos/id
     public Pedido obtenerPedido(@PathVariable long id) {
-        return pedidoServicio.obtenerPorId(id);
+        return pedidoService.obtenerPorId(id);
     }
 
     @PostMapping
     public Pedido crearPedido(@RequestBody Pedido pedido) {
-        return pedidoServicio.guardar(pedido);
+        return pedidoService.crearPedido(pedido);
     }
 
-    @PutMapping("/{id}")
-    public Pedido actualizarPedido(@PathVariable long id, @RequestBody Pedido pedido) {
-        return pedidoServicio.actualizar(id, pedido);
+    @PutMapping(path = "{id}")
+    public Pedido actualizarPedido(@PathVariable("pedidoId")Long id,
+                                   @RequestParam(value="fechaPedido", required = false) String fechaPedido,
+                                   @RequestParam(value="total", required = false) Double total,
+                                   @RequestParam(value="estado", required = false) String estado) {
+        return pedidoService.actualizar(id,fechaPedido,total,estado);
     }
 
-    @DeleteMapping("/{id}")
-    public String eliminarPedido(@PathVariable long id) {
-        if (pedidoServicio.eliminar(id)) {
-            return "Pedido eliminado con éxito.";
-        }
-        return "Pedido no encontrado.";
+    @DeleteMapping(path ="{id}")
+    public Pedido eliminarPedido(@PathVariable Long id) {
+       return pedidoService.eliminar(id);
     }
 }
