@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/contactos")
+@RequestMapping("/api/contactos/")
 public class ContactoControlador {
 
     private final  ContactoServicio contactoServicio;
@@ -25,7 +25,7 @@ public class ContactoControlador {
         return contactoServicio.obtenerTodos();
     }
 
-    @GetMapping("/{contactoId}")
+    @GetMapping(path = "{contactoId}")
     public Contacto obtenerContacto(@PathVariable("contactoId") Long id) {
 
         return contactoServicio.obtenerPorId(id);
@@ -37,7 +37,7 @@ public class ContactoControlador {
         return contactoServicio.guardar(contacto);
     }
 
-    @PutMapping("/{contactoId}")
+    @PutMapping(path = "{contactoId}")
     public Contacto actualizarContacto(@PathVariable("contactoId")Long id,
                                        @RequestParam(value="nombre", required = false) String nombre,
                                        @RequestParam(value="apellido", required = false) String apellido,
@@ -48,7 +48,7 @@ public class ContactoControlador {
         return contactoServicio.actualizar(id, nombre, apellido, email,mensaje,fechaEnvio);
     }
 
-    @DeleteMapping("/{contactoId}")
+    @DeleteMapping(path = "{contactoId}")
     public Contacto eliminarContacto(@PathVariable("contactoId") long id) {
      return       contactoServicio.eliminar(id);
 

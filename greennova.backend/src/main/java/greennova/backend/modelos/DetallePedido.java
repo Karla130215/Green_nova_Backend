@@ -1,34 +1,40 @@
 package greennova.backend.modelos;
-
-
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "detallePedido")
+
 public class DetallePedido {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name="idDetalle",unique=true,nullable=false)
-private Long idDetalle;
+ @Id
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+ @Column(name = "idDetalle", unique = true, nullable = false)
+ private Long idDetalle;
+
 @Column(name = "cantidad",nullable = false)
 private int cantidad;
 @Column(name = "precioUnidad",nullable = false)
 private Double precioUnidad;
 //Llaves Foraneas
-private Long idProducto;
-private Long idPedido;
+
+    // Relación: Muchos detalles de pedido apuntan a un único Producto
+    @ManyToOne
+    @JoinColumn(name = "productos_id_productos")
+    private Producto producto;
+
 
 public DetallePedido(){
 }// constructor vacio
 
-public DetallePedido(int cantidad, double precioUnidad, Long idProducto, Long idPedido){
+public DetallePedido(int cantidad, double precioUnidad){
 
     this.cantidad = cantidad;
     this.precioUnidad = precioUnidad;
-    this.idProducto = idProducto;
-    this.idPedido = idPedido;
+
 }// constructor
 
     public long getIdDetalle() {
@@ -55,30 +61,6 @@ public DetallePedido(int cantidad, double precioUnidad, Long idProducto, Long id
         this.precioUnidad = precioUnidad;
     }
 
-    public Long getIdProducto() {
-        return idProducto;
-    }
 
-    public void setIdProducto(Long idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public Long getIdPedido() {
-        return idPedido;
-    }
-
-    public void setIdPedido(Long idPedido) {
-        this.idPedido = idPedido;
-    }
-
-    @Override
-    public String toString() {
-        return "DetallePedido{" +
-                "idDetalle=" + idDetalle +
-                ", cantidad=" + cantidad +
-                ", precioUnidad=" + precioUnidad +
-                ", idProducto=" + idProducto +
-                ", idPedido=" + idPedido +
-                '}';
-    }// to string
+// to string
 }// clase Detalle Pedido

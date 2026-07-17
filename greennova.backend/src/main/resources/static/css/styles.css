@@ -1,0 +1,1493 @@
+/* Fonts: Arima */
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@400;700;900&display=swap');
+
+:root {
+    /* Paleta principal */
+    --brand-dark: #233D2C;
+    --brand-medium: #2E6F40;
+    --brand-light: #CFFFDC;
+    --brand-accent: #68BA7F;
+
+    /* Tamaños y bordes */
+    --br-24: 24px;
+    --br-100: 100px;
+
+    /* Fuentes tipográficas */
+    --font-arima-madurai: 'Arima Madurai', Arial, sans-serif;
+    --font-inter: 'Inter', Arial, sans-serif;
+    --font-work-sans: 'Work Sans', Arial, sans-serif;
+    --font-main: 'Mulish', sans-serif;
+
+    /* Paleta sección Únete */
+    --bg-principal: #CFFDC4;
+    --bg-cta: #2E6F40;
+    --color-texto-claro: #FFFFFF;
+    --color-btn: #68BA7F;
+}
+
+body {
+    font-family: 'Arima', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.custom-navbar {
+    background-color: var(--brand-dark) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.custom-navbar .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: var(--brand-accent) !important;
+}
+
+/* Logo */
+.logo-container {
+    width: 44px;
+    height: 44px;
+    transition: transform 0.3s ease;
+}
+
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.navbar-brand:hover .logo-container {
+    transform: scale(1.05);
+}
+
+/* Botones del Header */
+.btn-outline-brand-header {
+    color: #ffffff;
+    border: 1px solid var(--brand-accent);
+    border-radius: 50px;
+    font-weight: 700;
+    padding: 0.45rem 1.5rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-brand-header:hover {
+    background-color: var(--brand-accent);
+    color: var(--brand-dark);
+    border-color: var(--brand-accent);
+}
+
+.btn-brand-header {
+    background-color: var(--brand-medium);
+    color: #ffffff;
+    border-radius: 50px;
+    font-weight: 700;
+    padding: 0.45rem 1.5rem;
+    font-size: 0.9rem;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-brand-header:hover {
+    background-color: var(--brand-accent);
+    color: var(--brand-dark);
+}
+
+/* ==========================================================================
+   HERO & PRESENTACIÓN
+   ========================================================================== */
+.hero-section,
+.section-light {
+    background-color: #d1ffd9;
+}
+
+.hero-section {
+    padding: 80px 0;
+}
+
+.hero-content,
+.hero-image {
+    flex: 1;
+}
+
+.section-label {
+    color: #6fcf8f;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+.btn-green {
+    background-color: #6fcf8f;
+    color: white;
+    border: none;
+}
+
+/* ==========================================================================
+   SECCIÓN NUESTRO EQUIPO
+   ========================================================================== */
+.equipo-section {
+    background-color: #ffffff;
+}
+
+.equipo-titulo {
+    font-family: var(--font-work-sans);
+    font-weight: 700;
+    font-size: 38px;
+    color: var(--brand-dark);
+}
+
+.equipo-subtitulo {
+    font-family: var(--font-inter);
+    color: #4a574e;
+    font-size: 18px;
+    max-width: 600px;
+}
+
+/* Carrusel */
+.equipo-carousel {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 60px;
+    position: relative;
+}
+
+.equipo-card {
+    background-color: var(--brand-light);
+    border-radius: var(--br-24);
+    padding: 40px 32px;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.equipo-foto {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    display: block;
+    border: 4px solid var(--brand-accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón Ver más y texto desplegable */
+.btn-ver-mas {
+    background-color: transparent;
+    color: var(--brand-medium);
+    border: 2px solid var(--brand-accent);
+    border-radius: var(--br-100);
+    font-family: var(--font-inter);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.45rem 1.6rem;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+
+.btn-ver-mas:hover {
+    background-color: var(--brand-accent);
+    color: var(--brand-dark);
+}
+
+.equipo-detalle {
+    margin-top: 18px;
+}
+
+.equipo-texto-completo {
+    font-family: var(--font-inter);
+    color: #4a574e;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: left;
+    margin: 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(46, 111, 64, 0.2);
+}
+
+/* Controles del carrusel con color de marca */
+.equipo-carousel .carousel-control-prev,
+.equipo-carousel .carousel-control-next {
+    width: 48px;
+    height: 48px;
+    background-color: var(--brand-medium);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    transition: background-color 0.2s ease;
+}
+
+.equipo-carousel .carousel-control-prev {
+    left: 0;
+}
+
+.equipo-carousel .carousel-control-next {
+    right: 0;
+}
+
+.equipo-carousel .carousel-control-prev:hover,
+.equipo-carousel .carousel-control-next:hover {
+    background-color: var(--brand-accent);
+}
+
+/* Indicadores */
+.equipo-carousel .carousel-indicators {
+    position: static;
+    margin: 28px 0 0 0;
+}
+
+.equipo-carousel .carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--brand-accent);
+    opacity: 0.4;
+}
+
+.equipo-carousel .carousel-indicators .active {
+    background-color: var(--brand-medium);
+    opacity: 1;
+}
+
+@media (max-width: 575px) {
+    .equipo-carousel {
+        padding: 0 44px;
+    }
+
+    .equipo-card {
+        padding: 32px 22px;
+    }
+}
+
+.equipo-nombre {
+    font-family: var(--font-work-sans);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--brand-dark);
+    margin-bottom: 4px;
+}
+
+.equipo-rol {
+    font-family: var(--font-inter);
+    font-weight: 700;
+    color: var(--brand-medium);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.equipo-texto {
+    font-family: var(--font-inter);
+    color: #4a574e;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .equipo-titulo {
+        font-size: 30px;
+    }
+}
+
+/* ==========================================================================
+   SECCIÓN MISIÓN Y VISIÓN
+   ========================================================================== */
+.mision-vision-section {
+    background-color: #d1fbe2;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.mv-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1100px;
+    width: 100%;
+    justify-content: center;
+}
+
+.mv-card {
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 45px 40px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 480px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.mv-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #6ebf8a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.mv-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.mv-card h2 {
+    color: #1e3524;
+    font-size: 1.6rem;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+
+.mv-card p {
+    color: #4a574e;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   SECCIÓN NUESTROS VALORES
+   ========================================================================== */
+.nuestros-valores {
+    background-color: #fff;
+}
+
+.lo-que-nos {
+    font-size: 18px;
+    color: var(--brand-accent);
+    font-family: var(--font-arima-madurai);
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.nuestros-valores-titulo {
+    font-size: 38px;
+    font-weight: 700;
+    font-family: var(--font-work-sans);
+    color: var(--brand-dark);
+}
+
+.los-principios-que {
+    font-family: var(--font-inter);
+    color: var(--color-gray);
+    font-size: 18px;
+}
+
+.tarjeta-valor {
+    border-radius: var(--br-24);
+    background-color: var(--brand-light);
+    padding: 36px 32px;
+}
+
+.icono-circulo {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--br-100);
+    background-color: var(--brand-accent);
+}
+
+.tarjeta-titulo {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: var(--font-work-sans);
+    color: var(--brand-dark);
+}
+
+.tarjeta-texto {
+    font-size: 16px;
+    line-height: 160%;
+    font-family: var(--font-inter);
+    color: var(--color-gray);
+}
+
+/* ==========================================================================
+   SECCIÓN NUESTRO IMPACTO EN CIFRAS
+   ========================================================================== */
+.impacto-stats {
+    background-color: #203a25;
+    color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.stats-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.stats-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 50px 0;
+    letter-spacing: 0.5px;
+}
+
+.stats-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #72ca8e;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #d1e7d6;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   NUEVA: SECCIÓN ÚNETE A LA COMUNIDAD
+   ========================================================================== */
+.seccion-unete {
+    display: block;
+    width: 100%;
+    background-color: var(--bg-cta);
+    color: var(--color-texto-claro);
+    padding: 5rem 1rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.seccion-unete__contenido {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.seccion-unete h2 {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    color: var(--color-texto-claro);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.seccion-unete p {
+    font-family: var(--font-main);
+    font-weight: 400;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+    color: var(--color-texto-claro);
+    opacity: 0.95;
+}
+
+.btn-catalogo {
+    background-color: var(--color-btn);
+    color: var(--color-texto-claro) !important;
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.8rem 3rem;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-catalogo:hover {
+    background-color: #55a86c;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-catalogo:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.custom-footer {
+    background-color: var(--brand-dark);
+    border-top: 1px solid var(--brand-medium);
+}
+
+.text-brand-light {
+    color: var(--brand-light) !important;
+}
+
+.custom-footer a {
+    transition: color 0.2s ease;
+}
+
+.custom-footer a:hover {
+    color: var(--brand-accent) !important;
+}
+
+.z-1 {
+    z-index: 1;
+}
+
+.hover-accent:hover {
+    color: var(--brand-accent) !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .mision-vision-section {
+        padding: 40px 15px;
+    }
+
+    .mv-card {
+        padding: 35px 25px;
+    }
+
+    .nuestros-valores-titulo {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .nuestros-valores-titulo {
+        font-size: 24px;
+    }
+
+    .tarjeta-valor {
+        padding: 24px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-heading {
+        font-size: 1.6rem;
+        margin-bottom: 35px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* ==========================================================================
+   PÁGINA DE CONTACTO
+   ========================================================================== */
+
+/* ── Hero split layout ── */
+.contacto-hero {
+    min-height: 100vh;
+    background-color: #d1ffd9;
+}
+
+/* Columna del formulario */
+.contacto-form-col {
+    background: linear-gradient(145deg, #c8f5d0 0%, #a8e6b8 50%, #8dd99f 100%);
+    padding: 60px 40px;
+}
+
+.contacto-form-wrapper {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* Título */
+.contacto-titulo {
+    font-family: var(--font-work-sans);
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: var(--brand-dark);
+    margin-bottom: 32px;
+    line-height: 1.1;
+}
+
+/* Botón enviar */
+.contacto-btn-enviar {
+    background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-medium) 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(35, 61, 44, 0.3);
+}
+
+.contacto-btn-enviar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(35, 61, 44, 0.4);
+    background: linear-gradient(135deg, var(--brand-medium) 0%, var(--brand-accent) 100%);
+    color: #ffffff;
+}
+
+.contacto-btn-enviar:active {
+    transform: translateY(-1px);
+}
+
+.contacto-btn-enviar:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ── Columna de imagen (helecho) ── */
+.contacto-img-col {
+    background: linear-gradient(135deg, #233D2C 0%, #2E6F40 60%, #3a8a52 100%);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.contacto-img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 60px;
+}
+
+.contacto-fern-img {
+    max-width: 90%;
+    max-height: 75vh;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3));
+    animation: fernFloat 6s ease-in-out infinite;
+}
+
+@keyframes fernFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(1deg);
+    }
+}
+
+/* ── Sección inferior: info cards ── */
+.contacto-bottom-section {
+    background-color: var(--brand-dark);
+    padding: 70px 0;
+}
+
+.contacto-bottom-card {
+    background: linear-gradient(145deg, rgba(46, 111, 64, 0.4) 0%, rgba(35, 61, 44, 0.6) 100%);
+    border: 1px solid rgba(104, 186, 127, 0.2);
+    border-radius: 20px;
+    padding: 40px 28px;
+    transition: all 0.35s ease;
+}
+
+.contacto-bottom-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--brand-accent);
+    box-shadow: 0 12px 40px rgba(104, 186, 127, 0.15);
+}
+
+.contacto-bottom-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--brand-accent) 0%, var(--brand-medium) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.contacto-bottom-card:hover .contacto-bottom-icon {
+    transform: scale(1.1);
+}
+
+.contacto-bottom-title {
+    font-family: var(--font-work-sans);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.contacto-bottom-text {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Social links */
+.contacto-social-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.contacto-social-link {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(104, 186, 127, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.contacto-social-link:hover {
+    background-color: var(--brand-accent);
+    border-color: var(--brand-accent);
+    color: var(--brand-dark);
+    transform: translateY(-3px);
+}
+
+/* ── RESPONSIVE: Contacto ── */
+@media (max-width: 991.98px) {
+    .contacto-form-col {
+        padding: 50px 24px;
+    }
+
+    .contacto-titulo {
+        font-size: 2.2rem;
+    }
+
+    .contacto-hero {
+        min-height: auto;
+    }
+
+    .contacto-hero .row {
+        min-height: auto !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .contacto-form-col {
+        padding: 40px 18px;
+    }
+
+    .contacto-titulo {
+        font-size: 1.8rem;
+        margin-bottom: 24px;
+    }
+
+    .contacto-btn-enviar {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+
+    .contacto-bottom-section {
+        padding: 50px 0;
+    }
+
+    .contacto-bottom-card {
+        padding: 30px 20px;
+    }
+}
+
+/* ==========================================================================
+   SECCIÓN PRODUCTOS
+   ========================================================================== */
+
+.productos-fondo{
+    background-image: url('../img/background.png');
+}
+
+
+.menu-lateral {
+    width: 250px;
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+
+.lista-menu {
+    list-style: none;
+    padding: 1PX;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.btn-filtro {
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.btn-filtro:hover {
+    background-color: var(--brand-light);
+    border-color: var(--brand-accent);
+}
+
+.btn-filtro.active {
+    background-color: var(--brand-medium);
+    color: var(--brand-medium);
+    border-color: var(--brand-medium);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.btn-filtro:active {
+    transform: scale(0.95);
+}
+
+/* Protegemos el texto para que jamás se corte */
+.btn-filtro {
+  white-space: nowrap !important;
+}
+
+@media (max-width: 767px) {
+  /* 1. Anulamos los 250px fijos y dejamos que ocupe todo el ancho del celular */
+  .menu-lateral {
+    width: 100% !important; 
+    position: relative !important; /* Quitamos el sticky en celular para que fluya mejor */
+    padding: 0 !important;
+    margin-bottom: 24px !important; 
+  }
+
+  /* 2. Forzamos la fila horizontal (anulando tu flex-direction: column general) */
+  .lista-menu {
+    flex-direction: row !important; 
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    
+    padding: 0 15px 10px 15px !important;
+    gap: 12px; 
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 3. Ocultamos la barra de scroll */
+  .lista-menu::-webkit-scrollbar {
+    display: none;
+  }
+  .lista-menu {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* 4. ¡EL ARREGLO FINAL! Anulamos el width: 100% de tus botones */
+  .btn-filtro {
+    width: auto !important; 
+    min-width: max-content !important; /* El texto jamás se cortará */
+  }
+}
+
+/* ==========================================================================
+   PÁGINA DE REGISTRO DE PRODUCTOS
+   ========================================================================== */
+
+/* Ajustes globales de estructura aplicados a la sección del formulario */
+.registro-hero {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background-image: url('../img/background.png');
+    /* Ruta corregida asumiendo que img está al mismo nivel que css */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Tarjeta principal (Verde oscuro de Figma) */
+.figma-container {
+    background-color: var(--brand-dark);
+    border-radius: var(--br-24);
+    padding: 40px 35px;
+    color: #ffffff;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(35, 61, 44, 0.15);
+}
+
+.figma-container h2 {
+    font-family: var(--font-work-sans);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+/* Caja interna blanca */
+.figma-inner-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px 25px;
+    color: #333333;
+}
+
+.figma-inner-card .form-label {
+    font-family: var(--font-inter);
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #333333;
+    margin-bottom: 6px;
+}
+
+/* Inputs estilizados */
+.figma-inner-card .form-control,
+.figma-inner-card .form-select {
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: #495057;
+    background-color: #fafafa;
+}
+
+.figma-inner-card .form-control:focus,
+.figma-inner-card .form-select:focus {
+    border-color: var(--brand-accent);
+    box-shadow: 0 0 0 0.25rem rgba(104, 186, 127, 0.25);
+    background-color: #ffffff;
+}
+
+.figma-inner-card .form-control:disabled {
+    background-color: #f1f3f1;
+    color: #888888;
+    border-color: #e2e2e2;
+}
+
+/* Botón Verde */
+.btn-figma-submit {
+    background-color: var(--brand-dark);
+    color: #ffffff;
+    font-family: var(--font-inter);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-figma-submit:hover {
+    background-color: var(--brand-medium);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/*Formulario de registro de usuarios*/
+
+* {
+    /* Selecciona todos los elementos de la página */
+    margin: 0;
+    /* Elimina márgenes por defecto */
+    padding: 0;
+    /* Elimina espacios internos por defecto */
+    box-sizing: border-box;
+    /* Hace que padding y borde no aumenten el tamaño total */
+}
+
+body {
+    /* Aplica estilos generales al cuerpo */
+    font-family: Georgia, serif;
+    /* Define una tipografía similar al diseño */
+    background-color: #eef8f1;
+    /* Coloca un fondo verde muy claro */
+}
+
+.navbar-custom {
+    /* Estiliza la barra superior */
+    background-color: #173d29;
+    /* Coloca fondo verde oscuro */
+    padding: 18px 0;
+    /* Agrega espacio arriba y abajo */
+    color: white;
+    /* Cambia el texto a color blanco */
+}
+
+.logo {
+    /* Estiliza el nombre Green-Nova */
+    font-size: 26px;
+    /* Define el tamaño del texto */
+    font-weight: bold;
+    /* Hace el texto más grueso */
+    margin: 0;
+    /* Elimina margen externo */
+}
+
+nav a {
+    /* Estiliza los enlaces del menú */
+    color: white;
+    /* Coloca los enlaces en blanco */
+    text-decoration: none;
+    /* Quita el subrayado */
+    margin: 0 15px;
+    /* Agrega separación horizontal */
+    font-weight: bold;
+    /* Hace los enlaces más gruesos */
+}
+
+nav a:hover {
+    /* Aplica estilo cuando el mouse pasa encima */
+    color: #7ccf8a;
+    /* Cambia el color a verde claro */
+}
+
+.btn-login {
+    /* Estiliza el botón de iniciar sesión */
+    background-color: transparent;
+    /* Deja el fondo transparente */
+    color: white;
+    /* Coloca el texto blanco */
+    border: 1px solid white;
+    /* Agrega borde blanco */
+    border-radius: 30px;
+    /* Redondea el botón */
+    padding: 10px 25px;
+    /* Agrega espacio interno */
+    font-weight: bold;
+    /* Hace el texto más grueso */
+}
+
+.main-section {
+    /* Estiliza la zona principal */
+    min-height: 760px;
+    /* Da una altura mínima a la sección */
+    display: flex;
+    /* Activa flexbox */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    background-image: linear-gradient(rgba(238, 248, 241, 0.9), rgba(238, 248, 241, 0.9)), url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e");
+    /* Coloca imagen de hojas con capa clara */
+    background-size: cover;
+    /* Hace que el fondo cubra toda la sección */
+    background-position: center;
+    /* Centra la imagen de fondo */
+}
+
+.form-container {
+    /* Estiliza el contenedor verde */
+    background-color: #173d29;
+    /* Coloca fondo verde oscuro */
+    width: 520px;
+    /* Define el ancho del formulario */
+    padding: 35px;
+    /* Agrega espacio interno */
+    border-radius: 20px;
+    /* Redondea las esquinas */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    /* Agrega sombra */
+}
+
+.form-container h1 {
+    /* Estiliza el título del formulario */
+    color: white;
+    /* Coloca el texto blanco */
+    text-align: center;
+    /* Centra el texto */
+    font-size: 28px;
+    /* Define tamaño del título */
+    font-weight: bold;
+    /* Hace el título más grueso */
+    margin-bottom: 25px;
+    /* Agrega separación inferior */
+}
+
+.form-box {
+    /* Estiliza la caja blanca del formulario */
+    background-color: white;
+    /* Coloca fondo blanco */
+    padding: 25px;
+    /* Agrega espacio interno */
+    border-radius: 15px;
+    /* Redondea las esquinas */
+}
+
+.form-label {
+    /* Estiliza las etiquetas */
+    font-weight: bold;
+    /* Hace las etiquetas más gruesas */
+    color: #26332b;
+    /* Coloca color oscuro al texto */
+}
+
+.form-control {
+    /* Estiliza los inputs de Bootstrap */
+    border-radius: 8px;
+    /* Redondea los campos */
+    padding: 12px;
+    /* Agrega espacio interno */
+    font-size: 14px;
+    /* Define tamaño del texto */
+}
+
+.form-control:focus {
+    /* Estiliza el campo cuando está seleccionado */
+    border-color: #198754;
+    /* Cambia el borde a verde */
+    box-shadow: 0 0 5px rgba(25, 135, 84, 0.4);
+    /* Agrega sombra verde */
+}
+
+.btn-submit {
+    /* Estiliza el botón de registro */
+    background-color: #16884b;
+    /* Coloca fondo verde */
+    color: white;
+    /* Coloca texto blanco */
+    border: none;
+    /* Quita el borde */
+    border-radius: 6px;
+    /* Redondea el botón */
+    padding: 12px 25px;
+    /* Agrega espacio interno */
+    font-weight: bold;
+    /* Hace el texto más grueso */
+}
+
+.btn-submit:hover {
+    /* Aplica estilo al pasar el mouse */
+    background-color: #0f6b39;
+    /* Oscurece el botón */
+}
+
+.footer-custom {
+    /* Estiliza el pie de página */
+    background-color: #173d29;
+    /* Coloca fondo verde oscuro */
+    color: white;
+    /* Coloca texto blanco */
+    padding: 45px 0;
+    /* Agrega espacio arriba y abajo */
+}
+
+.footer-custom p {
+    /* Estiliza el texto central del footer */
+    margin: 0;
+    /* Elimina margen */
+}
+
+.footer-custom span {
+    /* Estiliza los iconos simulados */
+    margin-right: 15px;
+    /* Agrega separación entre iconos */
+    font-size: 20px;
+    /* Aumenta tamaño de iconos */
+}
+
+@media (max-width: 768px) {
+
+    /* Aplica estilos en pantallas pequeñas */
+    .container {
+        /* Selecciona contenedores Bootstrap */
+        flex-direction: column;
+        /* Coloca elementos uno debajo de otro */
+        gap: 15px;
+        /* Agrega separación entre elementos */
+    }
+
+    nav a {
+        /* Estiliza enlaces en celular */
+        display: inline-block;
+        /* Permite acomodarlos correctamente */
+        margin: 5px;
+        /* Reduce separación */
+    }
+
+    .form-container {
+        /* Ajusta el formulario en celular */
+        width: 90%;
+        /* Ocupa el 90% del ancho */
+    }
+}
+
+/*seccion Ingresar usuario*/
+
+
+/* Sección de fondo con la imagen */
+.ingreso {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background-image: url('../img/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Tarjeta principal verde  */
+.figma-container {
+    background-color: var(--brand-dark);
+    border-radius: var(--br-24);
+    padding: 40px 35px;
+    color: #ffffff;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(35, 61, 44, 0.15);
+}
+
+/* Título de la tarjeta principal */
+.figma-container h2 {
+    font-family: var(--font-work-sans);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+/* Caja interna blanca */
+.figma-inner-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px 25px;
+    color: #333333;
+}
+
+/* Contenedor propio del formulario */
+.form-box {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+/* Etiquetas (Labels) */
+.figma-inner-card .form-label {
+    font-family: var(--font-inter);
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #333333;
+    margin-bottom: 6px;
+}
+
+/* Campos de entrada  */
+.figma-inner-card .form-control {
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: #495057;
+    background-color: #fafafa;
+}
+
+/* Efecto  */
+.figma-inner-card .form-control:focus {
+    border-color: var(--brand-accent);
+    box-shadow: 0 0 0 0.25rem rgba(104, 186, 127, 0.25);
+    background-color: #ffffff;
+}
+
+/* Botón Enviar */
+.btn-submit {
+    background-color: #16884b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 25px;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background-color: #0f6b39;
+}
+
+/* ==========================================================================
+   PÁGINA DE Inicio
+   ========================================================================== */
+
+.heroIndex {
+    background-color: var(--brand-light);
+    padding: 3rem 0;
+    font-family: var(--font-main);
+}
+
+.heroContent {
+    max-width: 879px;
+
+}
+
+.heroTitle {
+    font-family: var(--font-arima-madurai);
+    font-size: 32rem;
+    font-weight: 800;
+    color: var(--brand-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    
+}
+
+.heroContent p {
+    font-family: var(--font-inter);
+    font-size: 1.1rem;
+    color: var(--brand-dark);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.btn-green {
+    background-color: var(--brand-accent);
+    color: var(--color-texto-claro);
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--br-100);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-green:hover {
+    background-color: var(--brand-medium);
+    color: var(--color-texto-claro);
+}
+
+.heroImage img {
+    width: 100%;
+    max-width: 500px;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--br-24);
+    
+}
+
+
+
+.infoSection {
+    background-color: var(--brand-medium);
+
+}
+
+.infoImage {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--br-24);
+    
+}
+
+.infoSubtitle {
+    font-family: var(--font-work-sans);
+    color: var(--brand-light);
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.infoTitle {
+    font-family: var(--font-arima-madurai);
+    color: var(--color-texto-claro);
+}
+
+.infoText {
+    font-family: var(--font-inter);
+    color: var(--color-texto-claro);
+    line-height: 1.6;
+}
+.btnComprar{
+    padding-bottom: 10px;
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD (Móviles y Tablets)
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+    
+    .heroIndex,
+    .infoSection {
+        padding: 2rem 0 !important;
+    }
+
+   
+    .heroTitle {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    
+    .heroContent p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    
+    .heroImage img {
+        max-height: 300px;
+    }
+
+    
+    .infoTitle {
+        font-size: 1.8rem;
+    }
+
+    
+    .infoImage {
+        width: 100%;
+        max-width: 100%;
+    }
+}

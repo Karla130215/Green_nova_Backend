@@ -23,8 +23,12 @@ public class Categoria {
     private String descripcion;
 
     @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoria")
-    private List<Producto> productos = new ArrayList<>();
+
+    // Relación opcional bidireccional: Una categoría tiene muchos productos
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+    private List<Producto> productos;
+
+
 
     public Categoria (String nombre, String descripcion){
         this.nombre = nombre;

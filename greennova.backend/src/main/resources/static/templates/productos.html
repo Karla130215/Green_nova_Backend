@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" />
+
+</head>
+
+<body class="productos-fondo">
+    <div class="container-fluid mt-5">
+        <div class="row flex-md-nowrap">
+
+           <aside class="col-md-3 col-lg-2 menu-lateral">
+    <nav aria-label="Navegación secundaria">
+        <ul class="lista-menu d-flex flex-row flex-md-column flex-nowrap overflow-auto pb-2">
+            
+            <li class="nav-item flex-shrink-0"><button id="todosBtn" class="btn-filtro active text-start" data-categoria="todos">Todos</button></li>
+            <li class="nav-item flex-shrink-0"><button id="interiorBtn" class="btn-filtro text-start" data-categoria="interior">Interior</button></li>
+            <li class="nav-item flex-shrink-0"><button id="exteriorBtn" class="btn-filtro text-start" data-categoria="exterior">Exterior</button></li>
+            <li class="nav-item flex-shrink-0"><button id="macetasBtn" class="btn-filtro text-start" data-categoria="sol-directo">Macetas</button></li>
+            <li class="nav-item flex-shrink-0"><button id="accesoriosBtn" class="btn-filtro text-start" data-categoria="luz-indirecta">Accesorios</button></li>
+            <li class="nav-item flex-shrink-0"><button id="suculentasBtn" class="btn-filtro text-start" data-categoria="sombra">Suculentas</button></li>
+            <li class="nav-item flex-shrink-0"><button id="cactusBtn" class="btn-filtro text-start" data-categoria="riego-alto">Cactus</button></li>
+            <li class="nav-item flex-shrink-0"><button id="nuevoArticulo" class="btn-filtro text-start" data-categoria="todos">Nuevo</button></li>
+            
+        </ul>
+    </nav>
+</aside>
+
+            <main class="col-md-9 col-lg-10">
+                <div id="prodRow" class="row">
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    <script type="module" src="../scripts/cards.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="../scripts/elements.js"></script>
+</body>
+
+</html>

@@ -1,12 +1,30 @@
 package greennova.backend.modelos;
 
+import jakarta.persistence.*;
+
+import java.util.List;
+@Entity
+@Table(name ="usuario" )
 public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idUsuario",unique = true,nullable = false)
 private long idUsuario;
+    @Column(name = "total",nullable = false)
 private static long total = 0L;
+    @Column(name = "nombre",nullable = false)
 private String nombre;
+    @Column(name = "telefono",nullable = false)
 private String telefono;
+    @Column(name = "email",nullable = false)
 private String email;
+    @Column(name = "password",nullable = false)
 private String password;
+
+//llave foranea
+// Relación: Un usuario tiene muchos pedidos
+@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+private List<Pedido> pedidos;
 
 public  Usuario(){
 }//constructor vacio

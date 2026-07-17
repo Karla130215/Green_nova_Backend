@@ -1,7 +1,11 @@
 package greennova.backend.modelos;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "productos")
@@ -35,11 +39,10 @@ public class Producto {
 
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
-
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "categoriaId")// referencia
-    private Categoria categoria; //clave foranea categoriaId
+    @JoinColumn(name = "categoriaId")
+    private Categoria categoria;
 
 
 public Producto (String nombre, String tipoProducto, Double precio, String imagen, String rLuz, String fRiego,String funcion,String descripcion ){

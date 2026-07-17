@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/usuarios")
+@RequestMapping("/api/usuarios/")
 public class UsuarioControlador {
 
     @Autowired
@@ -19,7 +19,7 @@ public class UsuarioControlador {
         return usuarioServicio.obtenerTodos();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(path = "{id}")
     public Usuario obtenerUsuario(@PathVariable long id) {
         return usuarioServicio.obtenerPorId(id);
     }
@@ -29,16 +29,18 @@ public class UsuarioControlador {
         return usuarioServicio.guardar(usuario);
     }
 
-    @PutMapping("/{id}")
-    public Usuario actualizarUsuario(@PathVariable long id, @RequestBody Usuario usuario) {
-        return usuarioServicio.actualizar(id, usuario);
+    @PutMapping(path = "{id}")
+    public Usuario actualizarUsuario(@PathVariable("usuarioId") long id,
+                                     @RequestParam(value = "total")int total,
+                                     @RequestParam(value = "nombre")String nombre,
+                                     @RequestParam(value = "telefono")String telefono,
+                                     @RequestParam("email")String email,
+                                     @RequestParam("password")String password) {
+        return usuarioServicio.actualizar(id,total,nombre,telefono,email,password);
     }
 
-    @DeleteMapping("/{id}")
-    public String eliminarUsuario(@PathVariable long id) {
-        if (usuarioServicio.eliminar(id)) {
-            return "Usuario eliminado con éxito.";
-        }
-        return "Usuario no encontrado.";
+    @DeleteMapping(path = "{id}")
+    public Usuario eliminarUsuario(@PathVariable long id) {
+       return usuarioServicio.eliminar(id);
     }
 }
