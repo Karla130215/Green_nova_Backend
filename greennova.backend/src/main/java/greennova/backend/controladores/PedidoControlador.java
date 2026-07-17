@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/api/pedidos/") // http://localhost:8080/api/pedidos/
+@RequestMapping(path="/api/pedidos") // http://localhost:8080/api/pedidos/
 public class PedidoControlador {
     private final PedidoServicio pedidoService;//se inyecta dependencia con @Autowired
     @Autowired

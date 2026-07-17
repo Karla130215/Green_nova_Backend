@@ -48,6 +48,7 @@ public class ContactoServicio {
 
     // Guardar un nuevo contacto
     public Contacto guardar(Contacto contacto) {
+        contacto.setFechaEnvio(LocalDateTime.now());
         return contactoRepository.save(contacto);
     }// guardar
 
@@ -63,7 +64,7 @@ public class ContactoServicio {
             if(apellido != null) cont.setApellido(apellido);
             if(email != null) cont.setEmail(email);
             if(mensaje != null) cont.setMensaje(mensaje);
-            if(fechaEnvio != null) cont.setFechaPedido(fechaEnvio);
+            if(fechaEnvio != null) cont.setFechaEnvio(fechaEnvio);
 
 
             contacto = contactoRepository.save(cont);

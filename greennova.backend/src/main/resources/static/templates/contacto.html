@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Green-Nova — Contáctanos</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous" />
+        <link rel="stylesheet" href="../css/styles.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@800&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" />
+
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    </head>
+
+    <body>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+        <!--SCRIPT LLAMAR HEADER Y FOOTER-->
+        <script src="../scripts/elements.js"></script>
+
+        <section class="contacto-hero">
+            <div class="container-fluid p-0">
+                <div class="row g-0 min-vh-100">
+
+                    <div class="col-lg-6 d-flex align-items-center contacto-form-col">
+                        <div class="contacto-form-wrapper w-100">
+
+                            <p class="section-label mb-1">GREEN-NOVA</p>
+                            <h1 class="contacto-titulo">Contáctanos</h1>
+
+                            <form id="contactForm" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="nombre" class="form-label fw-semibold">Nombre</label>
+                                        <input type="text" class="form-control form-control-lg rounded-3" id="nombre"
+                                            name="nombre" placeholder="Tu nombre" required />
+                                        <div class="invalid-feedback">Ingresa tu nombre.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="apellido" class="form-label fw-semibold">Apellido</label>
+                                        <input type="text" class="form-control form-control-lg rounded-3" id="apellido"
+                                            name="apellido" placeholder="Tu apellido" required />
+                                        <div class="invalid-feedback">Ingresa tu apellido.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="email" class="form-label fw-semibold">E-mail</label>
+                                        <input type="email" class="form-control form-control-lg rounded-3" id="email"
+                                            name="email" placeholder="correo@ejemplo.com" required />
+                                        <div class="invalid-feedback">Ingresa un correo válido.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="mensaje" class="form-label fw-semibold">Mensaje</label>
+                                        <textarea class="form-control form-control-lg rounded-3" id="mensaje"
+                                            name="mensaje" rows="4" placeholder="Escribe tu mensaje..."
+                                            required style="resize: none;"></textarea>
+                                        <div class="invalid-feedback">Escribe un mensaje.</div>
+                                    </div>
+                                    <div class="col-12 mt-2">
+                                        <button type="submit" class="btn contacto-btn-enviar w-100" id="btn-enviar">
+                                            <span class="contacto-btn-text">Enviar Ahora</span>
+                                            <span class="contacto-btn-spinner d-none">
+                                                <span class="spinner-border spinner-border-sm me-2" role="status"
+                                                    aria-hidden="true"></span>
+                                                Enviando…
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class="mt-4 d-flex align-items-center gap-2 text-dark">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                <span class="fw-bold" style="letter-spacing: 2px;">473-366-682</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 d-none d-lg-flex contacto-img-col">
+                        <div class="contacto-img-wrapper">
+                            <img src="../img/fern_leaf.png" alt="Helecho decorativo Green-Nova" class="contacto-fern-img" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+      
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="emailToast" class="toast align-items-center border-0" role="alert" aria-live="assertive"
+                aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body" id="toastBody">Mensaje enviado correctamente ✅</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+        <script src="../scripts/contacto.js"></script>
+    </body>
+</html>

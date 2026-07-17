@@ -3,7 +3,6 @@ package greennova.backend.modelos;
 
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
 @Entity
 @Table(name = "detallePedido")

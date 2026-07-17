@@ -83,11 +83,11 @@ public Contacto (String nombre, String apellido, String email, String mensaje){
         this.mensaje = mensaje;
     }
 
-    public LocalDateTime getFechaPedido() {
+    public LocalDateTime getFechaEnvio() {
         return fechaEnvio;
     }
 
-    public void setFechaPedido(LocalDateTime fechaPedido) {
+    public void setFechaEnvio(LocalDateTime fechaPedido) {
         this.fechaEnvio = fechaPedido;
     }
 
