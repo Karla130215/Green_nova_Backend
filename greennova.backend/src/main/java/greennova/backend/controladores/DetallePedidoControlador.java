@@ -32,8 +32,8 @@ public class DetallePedidoControlador {
 
     @PutMapping(path = "{id}")
     public DetallePedido actualizarDetalle(@PathVariable long id,
-                                           @PathVariable(value ="cantidad",required = false) int cantidad ,
-                                           @PathVariable (value = "precioUnidad",required=false) double precioUnidad) {
+                                           @RequestParam(value ="cantidad", required = false, defaultValue = "0") int cantidad ,
+                                           @RequestParam(value = "precioUnidad", required = false, defaultValue = "0") double precioUnidad) {
 
     return detallePedidoServicio.actualizar(id,cantidad,precioUnidad);
     }

@@ -34,7 +34,7 @@ public class PedidoControlador {
     }
 
     @PutMapping(path = "{id}")
-    public Pedido actualizarPedido(@PathVariable("pedidoId")Long id,
+    public Pedido actualizarPedido(@PathVariable("id")Long id,
                                    @RequestParam(value="fechaPedido", required = false) String fechaPedido,
                                    @RequestParam(value="total", required = false) Double total,
                                    @RequestParam(value="estado", required = false) String estado) {

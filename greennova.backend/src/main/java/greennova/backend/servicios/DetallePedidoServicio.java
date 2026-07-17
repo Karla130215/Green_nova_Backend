@@ -40,17 +40,14 @@ public class DetallePedidoServicio {
     // Actualizar un detalle existente
     public DetallePedido actualizar(long id, int cantidad,double precioUnidad ) {
         DetallePedido dp = null;
-        DetallePedido de = null;
         if (detallePedidoRepository.existsById(id)) {
-            de = detallePedidoRepository.findById(id).get();
+            DetallePedido de = detallePedidoRepository.findById(id).get();
 
             if (cantidad != 0) de.setCantidad(cantidad);
             if (precioUnidad != 0.0) de.setPrecioUnidad(precioUnidad);
 
+            dp = detallePedidoRepository.save(de);
         }
-
-        dp = detallePedidoRepository.save(de);
-
 
         return dp;
     }
