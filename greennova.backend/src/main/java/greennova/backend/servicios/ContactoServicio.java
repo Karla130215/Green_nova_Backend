@@ -1,58 +1,78 @@
 package greennova.backend.servicios;
 
 import greennova.backend.modelos.Contacto;
+import greennova.backend.modelos.Producto;
+import greennova.backend.repositorios.ContactoRepository;
+import greennova.backend.repositorios.ProductoRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ContactoServicio {
 
-    private final ArrayList<Contacto> listaContactos = new ArrayList<>();
+    private final ContactoRepository contactoRepository;
+   // private final ArrayList<Contacto> listaContactos = new ArrayList<>();
+
+
+    public ContactoServicio(ContactoRepository contactoRepository) {
+        this.contactoRepository = contactoRepository;
+    }
 
     // Obtener todos los contactos
     public List<Contacto> obtenerTodos() {
-        return listaContactos;
+        return contactoRepository.findAll();
     }// obtener todos
 
     // Obtener contacto por ID
     public Contacto obtenerPorId(long id) {
-        for (Contacto contacto : listaContactos) {
-            if (contacto.getIdMensaje() == id) {
-                return contacto;
-            }
-        }
-        return null;
+        return contactoRepository.findById(id).
+                orElseThrow(() -> new IllegalArgumentException("El contacto con el ID [" +id+ "] no existe"));
+
     }// obtener por id
+
+    // Eliminar un contacto por ID
+    public Contacto eliminar(Long id) {
+        Contacto contacto = null;
+
+        if(contactoRepository.existsById(id)){
+            contacto = contactoRepository.findById(id).get();
+            contactoRepository.deleteById(id);
+        }
+
+        return contacto;
+    }// eliminar
 
     // Guardar un nuevo contacto
     public Contacto guardar(Contacto contacto) {
-        listaContactos.add(contacto);
-        return contacto;
+        return contactoRepository.save(contacto);
     }// guardar
 
     // Actualizar un contacto existente
-    public Contacto actualizar(long id, Contacto contactoActualizado) {
-        for (int i = 0; i < listaContactos.size(); i++) {
-            if (listaContactos.get(i).getIdMensaje() == id) {
-                contactoActualizado.setIdMensaje(id);
-                listaContactos.set(i, contactoActualizado);
-                return contactoActualizado;
-            }
+    public Contacto actualizar(Long id, String nombre, String apellido, String email, String mensaje, LocalDateTime fechaEnvio) {
+
+        Contacto contacto = null;
+
+        if(contactoRepository.existsById(id)){
+            Contacto cont = contactoRepository.findById(id).get();
+
+            if(nombre != null) cont.setNombre(nombre);
+            if(apellido != null) cont.setApellido(apellido);
+            if(email != null) cont.setEmail(email);
+            if(mensaje != null) cont.setMensaje(mensaje);
+            if(fechaEnvio != null) cont.setFechaPedido(fechaEnvio);
+
+
+            contacto = contactoRepository.save(cont);
+
         }
-        return null;
+
+        return contacto;
     }// actualizar
 
-    // Eliminar un contacto por ID
-    public boolean eliminar(long id) {
-        for (int i = 0; i < listaContactos.size(); i++) {
-            if (listaContactos.get(i).getIdMensaje() == id) {
-                listaContactos.remove(i);
-                return true;
-            }
-        }
-        return false;
-    }// eliminar
+
 
 }// clase ContactoServicio

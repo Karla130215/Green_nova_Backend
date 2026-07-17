@@ -5,40 +5,52 @@ import greennova.backend.servicios.ContactoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/contactos")
 public class ContactoControlador {
 
+    private final  ContactoServicio contactoServicio;
+
+
     @Autowired
-    private ContactoServicio contactoServicio;
+    public ContactoControlador(ContactoServicio contactoServicio) {
+        this.contactoServicio = contactoServicio;
+    }
 
     @GetMapping
     public List<Contacto> listarContactos() {
         return contactoServicio.obtenerTodos();
     }
 
-    @GetMapping("/{id}")
-    public Contacto obtenerContacto(@PathVariable long id) {
+    @GetMapping("/{contactoId}")
+    public Contacto obtenerContacto(@PathVariable("contactoId") Long id) {
+
         return contactoServicio.obtenerPorId(id);
     }
 
     @PostMapping
     public Contacto crearContacto(@RequestBody Contacto contacto) {
+
         return contactoServicio.guardar(contacto);
     }
 
-    @PutMapping("/{id}")
-    public Contacto actualizarContacto(@PathVariable long id, @RequestBody Contacto contacto) {
-        return contactoServicio.actualizar(id, contacto);
+    @PutMapping("/{contactoId}")
+    public Contacto actualizarContacto(@PathVariable("contactoId")Long id,
+                                       @RequestParam(value="nombre", required = false) String nombre,
+                                       @RequestParam(value="apellido", required = false) String apellido,
+                                       @RequestParam(value="email", required = false) String email,
+                                       @RequestParam(value="mensaje", required = false) String mensaje,
+                                       @RequestParam(value="fechaEnvio",required = false) LocalDateTime fechaEnvio) {
+
+        return contactoServicio.actualizar(id, nombre, apellido, email,mensaje,fechaEnvio);
     }
 
-    @DeleteMapping("/{id}")
-    public String eliminarContacto(@PathVariable long id) {
-        if (contactoServicio.eliminar(id)) {
-            return "Mensaje de contacto eliminado.";
-        }
-        return "Contacto no encontrado.";
+    @DeleteMapping("/{contactoId}")
+    public Contacto eliminarContacto(@PathVariable("contactoId") long id) {
+     return       contactoServicio.eliminar(id);
+
     }
 }

@@ -1,15 +1,34 @@
 package greennova.backend.modelos;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name="contacto")
 public class Contacto {
+
+
 private static long total = 0L;
-private long idMensaje;
-private String nombre;
-private String apellido;
-private String email;
-private String mensaje;
-private LocalDateTime fechaEnvio;
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="productoId", unique=true, nullable = false)
+    private long idMensaje;
+
+    @Column(name="nombre", nullable = false)
+    private String nombre;
+    @Column(name="apellido", nullable = false)
+    private String apellido;
+
+    @Column(name="email", nullable = false)
+    private String email;
+
+    @Column(name="mensaje", nullable = false)
+    private String mensaje;
+
+    @Column(name="fechaEnvio", nullable = false)
+    private LocalDateTime fechaEnvio;
 
 public Contacto (){
 }//constructor vacio
