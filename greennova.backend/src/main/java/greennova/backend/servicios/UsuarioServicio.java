@@ -1,68 +1,106 @@
 package greennova.backend.servicios;
 
+import io.jsonwebtoken.Jwts;
+import greennova.backend.configuracion.JwtFilter;
+import greennova.backend.dto.LoginRequest;
+import greennova.backend.dto.PassDto;
 import greennova.backend.modelos.Usuario;
 import greennova.backend.repositorios.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+
 
 @Service
 public class UsuarioServicio {
 
-   // private final ArrayList<Usuario> listaUsuarios = new ArrayList<>();
     private final UsuarioRepository usuarioRepository;
 
-    public UsuarioServicio(UsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
-    }
+    @Autowired
+    PasswordEncoder encoder;
 
-    // Obtener todos los usuarios
-    public List<Usuario> obtenerTodos() {
+    @Autowired
+    public UsuarioServicio(UsuarioRepository repository) {
+        this.usuarioRepository = repository;
+    }//constructor UsuarioServicio
+
+    public List<Usuario> getUsuarios() {
         return usuarioRepository.findAll();
-    }// obtener todos
+    }//getUsuario
 
-    // Obtener usuario por ID
-    public Usuario obtenerPorId(long id) {
-        return usuarioRepository.findById(id)
-                .orElseThrow(() ->new IllegalArgumentException("El usuario con el id["+id+"] No existe"));
+    public Usuario getUsuario(Long id) {
+        return usuarioRepository.findById(id).
+                orElseThrow(()-> new IllegalArgumentException("No existe el usuario con el id: " + id));
+    }//getUsuario id
 
-    }// obtener por id
+    public Usuario deleteUsuario(Long id) {
+        Usuario usuario = null;
 
-    // Guardar un nuevo usuario
-    public Usuario guardar(Usuario usuario) {
-
-        return usuarioRepository.save(usuario);
-    }// guardar
-
-    // Actualizar un usuario existente
-    public Usuario actualizar(long id, int total,String nombre,String telefono,String email, String password) {
-        Usuario usuario =null;
-        if(usuarioRepository.existsById(id)){
-            Usuario u =usuarioRepository.findById(id).get();
-            if (nombre != null) u.setNombre(nombre);
-            if(telefono!=null)u.setTelefono(telefono);
-            if (email!=null)u.setEmail(email);
-            if (password!=null)u.setPassword(password);
-            usuarioRepository.save(u);
-
-        }
-
-
-        return null;
-    }// actualizar
-
-    // Eliminar un usuario por ID
-    public Usuario eliminar(long id) {
-        Usuario usuario=null;
-        if(usuarioRepository.existsById(id)){
+        if (usuarioRepository.existsById(id)) {
             usuario = usuarioRepository.findById(id).get();
-            usuarioRepository.delete(usuario);
+            usuarioRepository.deleteById(id);
+        }//if
+        return  usuario;
+    }//deleteUsuario
 
 
+    public Usuario crearUsuario(Usuario usuario) {
+        Optional<Usuario> usr = usuarioRepository.findByEmail(usuario.getEmail());
+
+        if (usr.isEmpty()){
+            usuario.setPass(encoder.encode(usuario.getPass()));
+            usuarioRepository.save(usuario);
+        } else {
+            usuario = null;
         }
-return usuario;
+        return usuario;
+    }//crearUsuario
 
-    }// eliminar
 
+    public Usuario actualizarUsuario(Long id, PassDto dto) {
+        Usuario usuario = null;
+
+        if (usuarioRepository.existsById(id)) {
+            Usuario u = usuarioRepository.findById(id).get();
+
+            if (encoder.matches(dto.getPassActual(), u.getPass())) {
+                u.setPass(encoder.encode(dto.getPassNuevo()));
+                usuario = usuarioRepository.save(u);
+            }//if pass
+        }//if
+
+        return usuario;
+    }//actualizarUsuario
+
+    public boolean validarUsuario(LoginRequest request){
+        Optional<Usuario> usuario = usuarioRepository.findByEmail(request.getEmail());
+
+        if (usuario.isPresent()){
+            Usuario u = usuario.get();
+
+            if (encoder.matches(request.getPass(), u.getPass())){
+                return true;
+            }//request pass matches
+        }//isPresent
+
+        return false;
+    }//validarUsuario
+
+    public String generarToken(String email){
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.HOUR, 3);
+
+        return Jwts.builder()
+                .setSubject(email)
+                .claim("role", "user")
+                .issuedAt(new Date())
+                .expiration(calendar.getTime())
+                .signWith(JwtFilter.getSignInKey())
+                .compact();
+    }//generarToken
 }// clase UsuarioServicio

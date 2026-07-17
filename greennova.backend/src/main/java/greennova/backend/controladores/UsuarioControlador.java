@@ -1,5 +1,6 @@
 package greennova.backend.controladores;
 
+import greennova.backend.dto.PassDto;
 import greennova.backend.modelos.Usuario;
 import greennova.backend.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,36 +12,37 @@ import java.util.List;
 @RequestMapping("/api/usuarios/")
 public class UsuarioControlador {
 
-    @Autowired
+
     private UsuarioServicio usuarioServicio;
 
-    @GetMapping
-    public List<Usuario> listarUsuarios() {
-        return usuarioServicio.obtenerTodos();
-    }
+    @Autowired
+    public UsuarioControlador(UsuarioServicio servicio) {
+        this.usuarioServicio = servicio;
+    }//constructor UsuarioControlador
 
-    @GetMapping(path = "{id}")
-    public Usuario obtenerUsuario(@PathVariable long id) {
-        return usuarioServicio.obtenerPorId(id);
-    }
+    @GetMapping
+    public List<Usuario> getUsuarios() {
+        return usuarioServicio.getUsuarios();
+    }//getUsuarios
+
+    @GetMapping("{usuarioId}")
+    public Usuario getUsuario(@PathVariable("usuarioId") Long id) {
+        return usuarioServicio.getUsuario(id);
+    }//getUsuarioId
+
+    @DeleteMapping(path = "{usuarioId}")
+    public Usuario deleteUsuario(@PathVariable("usuarioId") Long id){
+        return usuarioServicio.deleteUsuario(id);
+    }//deleteUsuario Elimina usuario por Id coincidente
 
     @PostMapping
     public Usuario crearUsuario(@RequestBody Usuario usuario) {
-        return usuarioServicio.guardar(usuario);
-    }
+        return usuarioServicio.crearUsuario(usuario);
+    }//crearUsuario
 
-    @PutMapping(path = "{id}")
-    public Usuario actualizarUsuario(@PathVariable("usuarioId") long id,
-                                     @RequestParam(value = "total")int total,
-                                     @RequestParam(value = "nombre")String nombre,
-                                     @RequestParam(value = "telefono")String telefono,
-                                     @RequestParam("email")String email,
-                                     @RequestParam("password")String password) {
-        return usuarioServicio.actualizar(id,total,nombre,telefono,email,password);
-    }
-
-    @DeleteMapping(path = "{id}")
-    public Usuario eliminarUsuario(@PathVariable long id) {
-       return usuarioServicio.eliminar(id);
-    }
-}
+    @PutMapping(path = "{usuarioId}")
+    public Usuario actualizarUsuario(@PathVariable("usuarioId") Long id,
+                                     @RequestBody PassDto dto) {
+        return usuarioServicio.actualizarUsuario(id, dto);
+    }//actualizarUsuario
+}//class UsuarioControlador
