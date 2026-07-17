@@ -1,6 +1,4 @@
-const API_URL='/api/productos/'
 document.addEventListener("DOMContentLoaded", () => {
-
 
     /* ==========================================================
        CONFIGURACIÓN DE RUTAS
@@ -102,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </a>
 
                         <a
-                            href="${ruta}templates/registroUsuarios.html"
+                            href="${ruta}templates/registroUsuario.html"
                             class="btn btn-brand-header w-100 w-md-auto text-decoration-none text-center shadow-sm">
                             Registrarse
                         </a>

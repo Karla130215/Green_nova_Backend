@@ -19,10 +19,10 @@
     --font-main: 'Mulish', sans-serif;
 
     /* Paleta sección Únete */
-    --bg-principal: #CFFDC4;
-    --bg-cta: #2E6F40;
+    --bg-principal: #CFFDC4;   
+    --bg-cta: #2E6F40;         
     --color-texto-claro: #FFFFFF;
-    --color-btn: #68BA7F;
+    --color-btn: #68BA7F;      
 }
 
 body {
@@ -30,9 +30,9 @@ body {
     background-color: #f8f9fa;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
 }
 
 /* ==========================================================================
@@ -61,13 +61,11 @@ body {
     height: 44px;
     transition: transform 0.3s ease;
 }
-
 .logo-container img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
-
 .navbar-brand:hover .logo-container {
     transform: scale(1.05);
 }
@@ -82,13 +80,11 @@ body {
     font-size: 0.9rem;
     transition: all 0.2s ease;
 }
-
 .btn-outline-brand-header:hover {
     background-color: var(--brand-accent);
     color: var(--brand-dark);
     border-color: var(--brand-accent);
 }
-
 .btn-brand-header {
     background-color: var(--brand-medium);
     color: #ffffff;
@@ -99,7 +95,6 @@ body {
     border: none;
     transition: all 0.2s ease;
 }
-
 .btn-brand-header:hover {
     background-color: var(--brand-accent);
     color: var(--brand-dark);
@@ -108,31 +103,29 @@ body {
 /* ==========================================================================
    HERO & PRESENTACIÓN
    ========================================================================== */
-.hero-section,
-.section-light {
-    background-color: #d1ffd9;
+.hero-section, 
+.section-light { 
+  background-color: #d1ffd9; 
 }
 
-.hero-section {
-    padding: 80px 0;
+.hero-section { 
+  padding: 80px 0; 
+}
+.hero-content, 
+.hero-image { 
+  flex: 1; 
 }
 
-.hero-content,
-.hero-image {
-    flex: 1;
+.section-label { 
+  color: #6fcf8f; 
+  font-weight: bold; 
+  letter-spacing: 2px; 
+  font-size: 0.8rem; 
 }
-
-.section-label {
-    color: #6fcf8f;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 0.8rem;
-}
-
-.btn-green {
-    background-color: #6fcf8f;
-    color: white;
-    border: none;
+.btn-green { 
+  background-color: #6fcf8f; 
+  color: white; 
+  border: none; 
 }
 
 /* ==========================================================================
@@ -267,7 +260,6 @@ body {
     .equipo-carousel {
         padding: 0 44px;
     }
-
     .equipo-card {
         padding: 32px 22px;
     }
@@ -307,7 +299,7 @@ body {
    SECCIÓN MISIÓN Y VISIÓN
    ========================================================================== */
 .mision-vision-section {
-    background-color: #d1fbe2;
+    background-color: #d1fbe2; 
     padding: 60px 20px;
     display: flex;
     justify-content: center;
@@ -326,13 +318,13 @@ body {
 
 .mv-card {
     background-color: #ffffff;
-    border-radius: 24px;
+    border-radius: 24px; 
     padding: 45px 40px;
     flex: 1;
     min-width: 280px;
     max-width: 480px;
     box-sizing: border-box;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -344,7 +336,7 @@ body {
 .mv-icon {
     width: 50px;
     height: 50px;
-    background-color: #6ebf8a;
+    background-color: #6ebf8a; 
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -358,7 +350,7 @@ body {
 }
 
 .mv-card h2 {
-    color: #1e3524;
+    color: #1e3524; 
     font-size: 1.6rem;
     margin: 0 0 15px 0;
     font-weight: 700;
@@ -375,62 +367,62 @@ body {
    SECCIÓN NUESTROS VALORES
    ========================================================================== */
 .nuestros-valores {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .lo-que-nos {
-    font-size: 18px;
-    color: var(--brand-accent);
-    font-family: var(--font-arima-madurai);
-    letter-spacing: 2px;
-    font-weight: 800;
+  font-size: 18px;
+  color: var(--brand-accent);
+  font-family: var(--font-arima-madurai);
+  letter-spacing: 2px;
+  font-weight: 800;
 }
 
 .nuestros-valores-titulo {
-    font-size: 38px;
-    font-weight: 700;
-    font-family: var(--font-work-sans);
-    color: var(--brand-dark);
+  font-size: 38px;
+  font-weight: 700;
+  font-family: var(--font-work-sans);
+  color: var(--brand-dark);
 }
 
 .los-principios-que {
-    font-family: var(--font-inter);
-    color: var(--color-gray);
-    font-size: 18px;
+  font-family: var(--font-inter);
+  color: var(--color-gray);
+  font-size: 18px;
 }
 
 .tarjeta-valor {
-    border-radius: var(--br-24);
-    background-color: var(--brand-light);
-    padding: 36px 32px;
+  border-radius: var(--br-24);
+  background-color: var(--brand-light);
+  padding: 36px 32px;
 }
 
 .icono-circulo {
-    width: 60px;
-    height: 60px;
-    border-radius: var(--br-100);
-    background-color: var(--brand-accent);
+  width: 60px;
+  height: 60px;
+  border-radius: var(--br-100);
+  background-color: var(--brand-accent);
 }
 
 .tarjeta-titulo {
-    font-size: 24px;
-    font-weight: 700;
-    font-family: var(--font-work-sans);
-    color: var(--brand-dark);
+  font-size: 24px;
+  font-weight: 700;
+  font-family: var(--font-work-sans);
+  color: var(--brand-dark);
 }
 
 .tarjeta-texto {
-    font-size: 16px;
-    line-height: 160%;
-    font-family: var(--font-inter);
-    color: var(--color-gray);
+  font-size: 16px;
+  line-height: 160%;
+  font-family: var(--font-inter);
+  color: var(--color-gray);
 }
 
 /* ==========================================================================
    SECCIÓN NUESTRO IMPACTO EN CIFRAS
    ========================================================================== */
 .impacto-stats {
-    background-color: #203a25;
+    background-color: #203a25; 
     color: #ffffff;
     padding: 60px 20px;
     text-align: center;
@@ -449,7 +441,7 @@ body {
 }
 
 .stats-grid {
-    list-style: none;
+    list-style: none; 
     margin: 0;
     padding: 0;
     display: grid;
@@ -467,13 +459,13 @@ body {
 .stat-number {
     font-size: 3rem;
     font-weight: 700;
-    color: #72ca8e;
+    color: #72ca8e; 
     line-height: 1;
 }
 
 .stat-label {
     font-size: 1rem;
-    color: #d1e7d6;
+    color: #d1e7d6; 
     font-weight: 400;
 }
 
@@ -485,7 +477,7 @@ body {
     width: 100%;
     background-color: var(--bg-cta);
     color: var(--color-texto-claro);
-    padding: 5rem 1rem;
+    padding: 5rem 1rem; 
     text-align: center;
     box-sizing: border-box;
 }
@@ -497,24 +489,24 @@ body {
 
 .seccion-unete h2 {
     font-family: var(--font-main);
-    font-weight: 700;
-    font-size: 3rem;
+    font-weight: 700; 
+    font-size: 3rem;  
     margin-top: 0;
     margin-bottom: 1.2rem;
     color: var(--color-texto-claro);
     line-height: 1.2;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.02em; 
 }
 
 .seccion-unete p {
     font-family: var(--font-main);
-    font-weight: 400;
-    font-size: 1rem;
+    font-weight: 400; 
+    font-size: 1rem;  
     max-width: 600px;
     margin: 0 auto 2.5rem auto;
     line-height: 1.6;
     color: var(--color-texto-claro);
-    opacity: 0.95;
+    opacity: 0.95; 
 }
 
 .btn-catalogo {
@@ -525,16 +517,16 @@ body {
     font-size: 1rem;
     padding: 0.8rem 3rem;
     border: none;
-    border-radius: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 30px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); 
     text-decoration: none;
     display: inline-block;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; 
 }
 
 .btn-catalogo:hover {
     background-color: #55a86c;
-    transform: translateY(-3px);
+    transform: translateY(-3px); 
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -550,23 +542,18 @@ body {
     background-color: var(--brand-dark);
     border-top: 1px solid var(--brand-medium);
 }
-
 .text-brand-light {
     color: var(--brand-light) !important;
 }
-
 .custom-footer a {
     transition: color 0.2s ease;
 }
-
 .custom-footer a:hover {
     color: var(--brand-accent) !important;
 }
-
 .z-1 {
     z-index: 1;
 }
-
 .hover-accent:hover {
     color: var(--brand-accent) !important;
     opacity: 1 !important;
@@ -579,7 +566,7 @@ body {
     .mision-vision-section {
         padding: 40px 15px;
     }
-
+    
     .mv-card {
         padding: 35px 25px;
     }
@@ -593,7 +580,6 @@ body {
     .nuestros-valores-titulo {
         font-size: 24px;
     }
-
     .tarjeta-valor {
         padding: 24px 20px;
     }
@@ -604,11 +590,9 @@ body {
         font-size: 1.6rem;
         margin-bottom: 35px;
     }
-
     .stat-number {
         font-size: 2.5rem;
     }
-
     .stat-label {
         font-size: 0.95rem;
     }
@@ -702,15 +686,8 @@ body {
 }
 
 @keyframes fernFloat {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-15px) rotate(1deg);
-    }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-15px) rotate(1deg); }
 }
 
 /* ── Sección inferior: info cards ── */
@@ -835,105 +812,54 @@ body {
         padding: 30px 20px;
     }
 }
-
 /* ==========================================================================
    SECCIÓN PRODUCTOS
    ========================================================================== */
 
-.productos-fondo{
-    background-image: url('../img/background.png');
-}
-
-
-.menu-lateral {
+   .menu-lateral {
     width: 250px;
     position: sticky;
-    top: 20px;
+    top: 20px; 
     max-height: calc(100vh - 40px);
     overflow-y: auto;
-}
+   }
 
-.lista-menu {
-    list-style: none;
+   .lista-menu {
+    list-style: none; 
     padding: 1PX;
     margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     gap: 3px;
-}
-
-.btn-filtro {
+   }
+    .btn-filtro {
     width: 100%;
-    text-align: left;
+    text-align: left; 
     padding: 12px 16px;
-    background-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: transparent;
     border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(8px);
+    border-radius: 8px; 
     font-size: 16px;
-    cursor: pointer;
-
-    transition: all 0.3s ease;
-}
-
-.btn-filtro:hover {
-    background-color: var(--brand-light);
-    border-color: var(--brand-accent);
-}
-
-.btn-filtro.active {
-    background-color: var(--brand-medium);
-    color: var(--brand-medium);
-    border-color: var(--brand-medium);
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.btn-filtro:active {
-    transform: scale(0.95);
-}
-
-/* Protegemos el texto para que jamás se corte */
-.btn-filtro {
-  white-space: nowrap !important;
-}
-
-@media (max-width: 767px) {
-  /* 1. Anulamos los 250px fijos y dejamos que ocupe todo el ancho del celular */
-  .menu-lateral {
-    width: 100% !important; 
-    position: relative !important; /* Quitamos el sticky en celular para que fluya mejor */
-    padding: 0 !important;
-    margin-bottom: 24px !important; 
-  }
-
-  /* 2. Forzamos la fila horizontal (anulando tu flex-direction: column general) */
-  .lista-menu {
-    flex-direction: row !important; 
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    cursor: pointer; 
     
-    padding: 0 15px 10px 15px !important;
-    gap: 12px; 
-    -webkit-overflow-scrolling: touch;
-  }
+    transition: all 0.3s ease;
+    }
 
-  /* 3. Ocultamos la barra de scroll */
-  .lista-menu::-webkit-scrollbar {
-    display: none;
-  }
-  .lista-menu {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+    .btn-filtro:hover {
+    background-color: var(--brand-light); 
+    border-color: var(--brand-accent);
+    }
 
-  /* 4. ¡EL ARREGLO FINAL! Anulamos el width: 100% de tus botones */
-  .btn-filtro {
-    width: auto !important; 
-    min-width: max-content !important; /* El texto jamás se cortará */
-  }
-}
+    .btn-filtro.active {
+    background-color: var(--brand-medium); 
+    color: white; 
+    border-color: var(--brand-medium);
+    font-weight: bold; 
+    }
+
+    .btn-filtro:active {
+    transform: scale(0.95);
+    }
 
 /* ==========================================================================
    PÁGINA DE REGISTRO DE PRODUCTOS
@@ -946,8 +872,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 60px 20px;
-    background-image: url('../img/background.png');
-    /* Ruta corregida asumiendo que img está al mismo nivel que css */
+    background-image: url('../img/background.png'); /* Ruta corregida asumiendo que img está al mismo nivel que css */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1036,229 +961,138 @@ body {
 
 /*Formulario de registro de usuarios*/
 
-* {
-    /* Selecciona todos los elementos de la página */
-    margin: 0;
-    /* Elimina márgenes por defecto */
-    padding: 0;
-    /* Elimina espacios internos por defecto */
-    box-sizing: border-box;
-    /* Hace que padding y borde no aumenten el tamaño total */
+* { /* Selecciona todos los elementos de la página */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina espacios internos por defecto */
+    box-sizing: border-box; /* Hace que padding y borde no aumenten el tamaño total */
 }
 
-body {
-    /* Aplica estilos generales al cuerpo */
-    font-family: Georgia, serif;
-    /* Define una tipografía similar al diseño */
-    background-color: #eef8f1;
-    /* Coloca un fondo verde muy claro */
+body { /* Aplica estilos generales al cuerpo */
+    font-family: Georgia, serif; /* Define una tipografía similar al diseño */
+    background-color: #eef8f1; /* Coloca un fondo verde muy claro */
 }
 
-.navbar-custom {
-    /* Estiliza la barra superior */
-    background-color: #173d29;
-    /* Coloca fondo verde oscuro */
-    padding: 18px 0;
-    /* Agrega espacio arriba y abajo */
-    color: white;
-    /* Cambia el texto a color blanco */
+.navbar-custom { /* Estiliza la barra superior */
+    background-color: #173d29; /* Coloca fondo verde oscuro */
+    padding: 18px 0; /* Agrega espacio arriba y abajo */
+    color: white; /* Cambia el texto a color blanco */
 }
 
-.logo {
-    /* Estiliza el nombre Green-Nova */
-    font-size: 26px;
-    /* Define el tamaño del texto */
-    font-weight: bold;
-    /* Hace el texto más grueso */
-    margin: 0;
-    /* Elimina margen externo */
+.logo { /* Estiliza el nombre Green-Nova */
+    font-size: 26px; /* Define el tamaño del texto */
+    font-weight: bold; /* Hace el texto más grueso */
+    margin: 0; /* Elimina margen externo */
 }
 
-nav a {
-    /* Estiliza los enlaces del menú */
-    color: white;
-    /* Coloca los enlaces en blanco */
-    text-decoration: none;
-    /* Quita el subrayado */
-    margin: 0 15px;
-    /* Agrega separación horizontal */
-    font-weight: bold;
-    /* Hace los enlaces más gruesos */
+nav a { /* Estiliza los enlaces del menú */
+    color: white; /* Coloca los enlaces en blanco */
+    text-decoration: none; /* Quita el subrayado */
+    margin: 0 15px; /* Agrega separación horizontal */
+    font-weight: bold; /* Hace los enlaces más gruesos */
 }
 
-nav a:hover {
-    /* Aplica estilo cuando el mouse pasa encima */
-    color: #7ccf8a;
-    /* Cambia el color a verde claro */
+nav a:hover { /* Aplica estilo cuando el mouse pasa encima */
+    color: #7ccf8a; /* Cambia el color a verde claro */
 }
 
-.btn-login {
-    /* Estiliza el botón de iniciar sesión */
-    background-color: transparent;
-    /* Deja el fondo transparente */
-    color: white;
-    /* Coloca el texto blanco */
-    border: 1px solid white;
-    /* Agrega borde blanco */
-    border-radius: 30px;
-    /* Redondea el botón */
-    padding: 10px 25px;
-    /* Agrega espacio interno */
-    font-weight: bold;
-    /* Hace el texto más grueso */
+.btn-login { /* Estiliza el botón de iniciar sesión */
+    background-color: transparent; /* Deja el fondo transparente */
+    color: white; /* Coloca el texto blanco */
+    border: 1px solid white; /* Agrega borde blanco */
+    border-radius: 30px; /* Redondea el botón */
+    padding: 10px 25px; /* Agrega espacio interno */
+    font-weight: bold; /* Hace el texto más grueso */
 }
 
-.main-section {
-    /* Estiliza la zona principal */
-    min-height: 760px;
-    /* Da una altura mínima a la sección */
-    display: flex;
-    /* Activa flexbox */
-    justify-content: center;
-    /* Centra horizontalmente */
-    align-items: center;
-    /* Centra verticalmente */
-    background-image: linear-gradient(rgba(238, 248, 241, 0.9), rgba(238, 248, 241, 0.9)), url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e");
-    /* Coloca imagen de hojas con capa clara */
-    background-size: cover;
-    /* Hace que el fondo cubra toda la sección */
-    background-position: center;
-    /* Centra la imagen de fondo */
+.main-section { /* Estiliza la zona principal */
+    min-height: 760px; /* Da una altura mínima a la sección */
+    display: flex; /* Activa flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    background-image: linear-gradient(rgba(238,248,241,0.9), rgba(238,248,241,0.9)), url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e"); /* Coloca imagen de hojas con capa clara */
+    background-size: cover; /* Hace que el fondo cubra toda la sección */
+    background-position: center; /* Centra la imagen de fondo */
 }
 
-.form-container {
-    /* Estiliza el contenedor verde */
-    background-color: #173d29;
-    /* Coloca fondo verde oscuro */
-    width: 520px;
-    /* Define el ancho del formulario */
-    padding: 35px;
-    /* Agrega espacio interno */
-    border-radius: 20px;
-    /* Redondea las esquinas */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-    /* Agrega sombra */
+.form-container { /* Estiliza el contenedor verde */
+    background-color: #173d29; /* Coloca fondo verde oscuro */
+    width: 520px; /* Define el ancho del formulario */
+    padding: 35px; /* Agrega espacio interno */
+    border-radius: 20px; /* Redondea las esquinas */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); /* Agrega sombra */
 }
 
-.form-container h1 {
-    /* Estiliza el título del formulario */
-    color: white;
-    /* Coloca el texto blanco */
-    text-align: center;
-    /* Centra el texto */
-    font-size: 28px;
-    /* Define tamaño del título */
-    font-weight: bold;
-    /* Hace el título más grueso */
-    margin-bottom: 25px;
-    /* Agrega separación inferior */
+.form-container h1 { /* Estiliza el título del formulario */
+    color: white; /* Coloca el texto blanco */
+    text-align: center; /* Centra el texto */
+    font-size: 28px; /* Define tamaño del título */
+    font-weight: bold; /* Hace el título más grueso */
+    margin-bottom: 25px; /* Agrega separación inferior */
 }
 
-.form-box {
-    /* Estiliza la caja blanca del formulario */
-    background-color: white;
-    /* Coloca fondo blanco */
-    padding: 25px;
-    /* Agrega espacio interno */
-    border-radius: 15px;
-    /* Redondea las esquinas */
+.form-box { /* Estiliza la caja blanca del formulario */
+    background-color: white; /* Coloca fondo blanco */
+    padding: 25px; /* Agrega espacio interno */
+    border-radius: 15px; /* Redondea las esquinas */
 }
 
-.form-label {
-    /* Estiliza las etiquetas */
-    font-weight: bold;
-    /* Hace las etiquetas más gruesas */
-    color: #26332b;
-    /* Coloca color oscuro al texto */
+.form-label { /* Estiliza las etiquetas */
+    font-weight: bold; /* Hace las etiquetas más gruesas */
+    color: #26332b; /* Coloca color oscuro al texto */
 }
 
-.form-control {
-    /* Estiliza los inputs de Bootstrap */
-    border-radius: 8px;
-    /* Redondea los campos */
-    padding: 12px;
-    /* Agrega espacio interno */
-    font-size: 14px;
-    /* Define tamaño del texto */
+.form-control { /* Estiliza los inputs de Bootstrap */
+    border-radius: 8px; /* Redondea los campos */
+    padding: 12px; /* Agrega espacio interno */
+    font-size: 14px; /* Define tamaño del texto */
 }
 
-.form-control:focus {
-    /* Estiliza el campo cuando está seleccionado */
-    border-color: #198754;
-    /* Cambia el borde a verde */
-    box-shadow: 0 0 5px rgba(25, 135, 84, 0.4);
-    /* Agrega sombra verde */
+.form-control:focus { /* Estiliza el campo cuando está seleccionado */
+    border-color: #198754; /* Cambia el borde a verde */
+    box-shadow: 0 0 5px rgba(25, 135, 84, 0.4); /* Agrega sombra verde */
 }
 
-.btn-submit {
-    /* Estiliza el botón de registro */
-    background-color: #16884b;
-    /* Coloca fondo verde */
-    color: white;
-    /* Coloca texto blanco */
-    border: none;
-    /* Quita el borde */
-    border-radius: 6px;
-    /* Redondea el botón */
-    padding: 12px 25px;
-    /* Agrega espacio interno */
-    font-weight: bold;
-    /* Hace el texto más grueso */
+.btn-submit { /* Estiliza el botón de registro */
+    background-color: #16884b; /* Coloca fondo verde */
+    color: white; /* Coloca texto blanco */
+    border: none; /* Quita el borde */
+    border-radius: 6px; /* Redondea el botón */
+    padding: 12px 25px; /* Agrega espacio interno */
+    font-weight: bold; /* Hace el texto más grueso */
 }
 
-.btn-submit:hover {
-    /* Aplica estilo al pasar el mouse */
-    background-color: #0f6b39;
-    /* Oscurece el botón */
+.btn-submit:hover { /* Aplica estilo al pasar el mouse */
+    background-color: #0f6b39; /* Oscurece el botón */
 }
 
-.footer-custom {
-    /* Estiliza el pie de página */
-    background-color: #173d29;
-    /* Coloca fondo verde oscuro */
-    color: white;
-    /* Coloca texto blanco */
-    padding: 45px 0;
-    /* Agrega espacio arriba y abajo */
+.footer-custom { /* Estiliza el pie de página */
+    background-color: #173d29; /* Coloca fondo verde oscuro */
+    color: white; /* Coloca texto blanco */
+    padding: 45px 0; /* Agrega espacio arriba y abajo */
 }
 
-.footer-custom p {
-    /* Estiliza el texto central del footer */
-    margin: 0;
-    /* Elimina margen */
+.footer-custom p { /* Estiliza el texto central del footer */
+    margin: 0; /* Elimina margen */
 }
 
-.footer-custom span {
-    /* Estiliza los iconos simulados */
-    margin-right: 15px;
-    /* Agrega separación entre iconos */
-    font-size: 20px;
-    /* Aumenta tamaño de iconos */
+.footer-custom span { /* Estiliza los iconos simulados */
+    margin-right: 15px; /* Agrega separación entre iconos */
+    font-size: 20px; /* Aumenta tamaño de iconos */
 }
 
-@media (max-width: 768px) {
-
-    /* Aplica estilos en pantallas pequeñas */
-    .container {
-        /* Selecciona contenedores Bootstrap */
-        flex-direction: column;
-        /* Coloca elementos uno debajo de otro */
-        gap: 15px;
-        /* Agrega separación entre elementos */
+@media (max-width: 768px) { /* Aplica estilos en pantallas pequeñas */
+    .container { /* Selecciona contenedores Bootstrap */
+        flex-direction: column; /* Coloca elementos uno debajo de otro */
+        gap: 15px; /* Agrega separación entre elementos */
     }
 
-    nav a {
-        /* Estiliza enlaces en celular */
-        display: inline-block;
-        /* Permite acomodarlos correctamente */
-        margin: 5px;
-        /* Reduce separación */
+    nav a { /* Estiliza enlaces en celular */
+        display: inline-block; /* Permite acomodarlos correctamente */
+        margin: 5px; /* Reduce separación */
     }
 
-    .form-container {
-        /* Ajusta el formulario en celular */
-        width: 90%;
-        /* Ocupa el 90% del ancho */
+    .form-container { /* Ajusta el formulario en celular */
+        width: 90%; /* Ocupa el 90% del ancho */
     }
 }
 
@@ -1272,7 +1106,7 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     padding: 60px 20px;
-    background-image: url('../img/background.png');
+    background-image: url('../img/background.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1308,9 +1142,9 @@ nav a:hover {
 
 /* Contenedor propio del formulario */
 .form-box {
-    background-color: white;
-    padding: 25px;
-    border-radius: 15px;
+    background-color: white; 
+    padding: 25px; 
+    border-radius: 15px; 
 }
 
 /* Etiquetas (Labels) */
@@ -1318,7 +1152,7 @@ nav a:hover {
     font-family: var(--font-inter);
     font-weight: 700;
     font-size: 0.85rem;
-    color: #333333;
+    color: #333333; 
     margin-bottom: 6px;
 }
 
@@ -1327,167 +1161,28 @@ nav a:hover {
     border: 1px solid #dcdcdc;
     border-radius: 8px;
     padding: 10px 14px;
-    font-size: 0.9rem;
+    font-size: 0.9rem;  
     color: #495057;
     background-color: #fafafa;
 }
 
 /* Efecto  */
 .figma-inner-card .form-control:focus {
-    border-color: var(--brand-accent);
+    border-color: var(--brand-accent); 
     box-shadow: 0 0 0 0.25rem rgba(104, 186, 127, 0.25);
     background-color: #ffffff;
 }
 
 /* Botón Enviar */
-.btn-submit {
-    background-color: #16884b;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 12px 25px;
-    font-weight: bold;
+.btn-submit { 
+    background-color: #16884b; 
+    color: white; 
+    border: none; 
+    border-radius: 6px; 
+    padding: 12px 25px; 
+    font-weight: bold; 
 }
 
-.btn-submit:hover {
-    background-color: #0f6b39;
-}
-
-/* ==========================================================================
-   PÁGINA DE Inicio
-   ========================================================================== */
-
-.heroIndex {
-    background-color: var(--brand-light);
-    padding: 3rem 0;
-    font-family: var(--font-main);
-}
-
-.heroContent {
-    max-width: 879px;
-
-}
-
-.heroTitle {
-    font-family: var(--font-arima-madurai);
-    font-size: 32rem;
-    font-weight: 800;
-    color: var(--brand-dark);
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-    
-}
-
-.heroContent p {
-    font-family: var(--font-inter);
-    font-size: 1.1rem;
-    color: var(--brand-dark);
-    margin-bottom: 2rem;
-    line-height: 1.5;
-}
-
-.btn-green {
-    background-color: var(--brand-accent);
-    color: var(--color-texto-claro);
-    padding: 12px 32px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: none;
-    border-radius: var(--br-100);
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-green:hover {
-    background-color: var(--brand-medium);
-    color: var(--color-texto-claro);
-}
-
-.heroImage img {
-    width: 100%;
-    max-width: 500px;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: var(--br-24);
-    
-}
-
-
-
-.infoSection {
-    background-color: var(--brand-medium);
-
-}
-
-.infoImage {
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: var(--br-24);
-    
-}
-
-.infoSubtitle {
-    font-family: var(--font-work-sans);
-    color: var(--brand-light);
-    letter-spacing: 2px;
-    font-size: 0.85rem;
-    font-weight: bold;
-}
-
-.infoTitle {
-    font-family: var(--font-arima-madurai);
-    color: var(--color-texto-claro);
-}
-
-.infoText {
-    font-family: var(--font-inter);
-    color: var(--color-texto-claro);
-    line-height: 1.6;
-}
-.btnComprar{
-    padding-bottom: 10px;
-}
-
-/* ==========================================================================
-   RESPONSIVIDAD (Móviles y Tablets)
-   ========================================================================== */
-
-@media (max-width: 767px) {
-
-    
-    .heroIndex,
-    .infoSection {
-        padding: 2rem 0 !important;
-    }
-
-   
-    .heroTitle {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    
-    .heroContent p {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
-
-    
-    .heroImage img {
-        max-height: 300px;
-    }
-
-    
-    .infoTitle {
-        font-size: 1.8rem;
-    }
-
-    
-    .infoImage {
-        width: 100%;
-        max-width: 100%;
-    }
+.btn-submit:hover { 
+    background-color: #0f6b39; 
 }

@@ -222,7 +222,7 @@ export const macetas = [
     riego: "N/A",
     Funcion: "adorno",
     descripcion: "Diseño minimalista de líneas limpias. Nuestra maceta cilíndrica resalta por su estética moderna y contemporánea. Ideal para plantas de crecimiento vertical como las sansevierias. Cuenta con un excelente acabado que se adapta a cualquier rincón de tu sala u oficina.",
-    imagen: "https://images.pexels.com/photos/4017967/pexels-photo-4017967.jpeg"
+    imagen: "https://zuccudesign.com/cdn/shop/products/cilindricamediana1.jpg?v=1674328585"
   },
   {
     idProducto: "m002",
@@ -232,7 +232,7 @@ export const macetas = [
     riego: "N/A",
     Funcion: "adorno",
     descripcion: "El accesorio perfecto para ocultar la maceta de plástico. Este cubremacetas está diseñado exclusivamente para dar un toque decorativo instantáneo. No tiene agujero de drenaje, lo que evita filtraciones de agua y protege tus muebles mientras hace lucir tus plantas espectaculares.",
-    imagen: "https://images.pexels.com/photos/7429815/pexels-photo-7429815.jpeg"
+    imagen: "https://s.alicdn.com/@sc04/kf/Hb48801a291294d11ad14329a2ec5e746V.jpg_300x300.jpg"
   },
   {
     idProducto: "m003",
@@ -242,7 +242,7 @@ export const macetas = [
     riego: "N/A",
     Funcion: "adorno",
     descripcion: "Ligera, resistente y con un relieve único. Fabricada con polímeros de alta resistencia, esta maceta combina la ligereza del plástico con un acabado texturizado premium que imita materiales artesanales. Es duradera, fácil de limpiar y perfecta tanto para interiores como exteriores.",
-    imagen: "https://images.pexels.com/photos/37397141/pexels-photo-37397141.jpeg"
+    imagen: "https://http2.mlstatic.com/D_NQ_NP_702598-MLM109425230926_042026-O.webp"
   },
   {
     idProducto: "m004",
@@ -252,7 +252,7 @@ export const macetas = [
     riego: "N/A",
     Funcion: "adorno",
     descripcion: "Ideal para plantas colgantes y espacios reducidos. Aprovecha la altura de tu hogar con esta maceta colgante. Incluye un sistema de soporte seguro y resistente, ideal para lucir plantas tipo teléfono (pothos), listones o suculentas colgantes, dándole dinamismo a tus paredes o balcones.",
-    imagen: "https://images.pexels.com/photos/12096576/pexels-photo-12096576.jpeg"
+    imagen: "https://http2.mlstatic.com/D_NQ_NP_612416-MLM46471454692_062021-O.webp"
   },
   {
     idProducto: "m005",
@@ -504,7 +504,7 @@ export const cactus = [
     riego: "1 vez al mes",
     Funcion: "adorno",
     descripcion: "cactus luz: Sol directo, riego: 1 vez al mes",
-    imagen: "https://images.pexels.com/photos/16667048/pexels-photo-16667048.jpeg"
+    imagen: "https://images.pexels.com/photos/3645055/pexels-photo-3645055.jpeg"
   },
   {
     idProducto: 14,
@@ -524,7 +524,7 @@ export const cactus = [
     riego: "1 vez cada 3 semanas",
     Funcion: "adorno",
     descripcion: "cactus luz: Indirecta brillante, riego: 1 vez cada 3 semanas",
-    imagen: "https://images.pexels.com/photos/11293447/pexels-photo-11293447.jpeg"
+    imagen: "https://images.pexels.com/photos/2306562/pexels-photo-2306562.jpeg"
   }
 ];
 
@@ -650,7 +650,7 @@ export const suculentas = [
     riego: "1 vez cada 3 semanas",
     Funcion: "adorno",
     descripcion: "suculenta luz: Sol directo, riego: 1 vez cada 3 semanas",
-    imagen: "https://images.pexels.com/photos/34065195/pexels-photo-34065195.jpeg"
+    imagen: "https://images.pexels.com/photos/1382396/pexels-photo-1382396.jpeg"
   },
   {
     idProducto: 13,

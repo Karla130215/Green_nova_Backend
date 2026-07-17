@@ -1,10 +1,16 @@
 /**
  * Green-Nova - Registro de Usuarios
- * Validaciones del formulario de registro
+ * Validaciones del formulario de registro y alta contra el backend.
+ *
+ * El registro se envia al backend (POST /api/usuarios/). El backend cifra la
+ * contraseña con BCrypt antes de guardarla, por lo que aqui NUNCA se almacena
+ * la contraseña en texto plano ni en localStorage.
  */
 
-// Arreglo donde se guardarán los usuarios registrados, cargando los que ya existan en localStorage
-const usuarios = JSON.parse(localStorage.getItem("usuariosRegistrados")) || [];
+// URL base de la API. Vacio = mismo origen (el frontend lo sirve el propio
+// Spring Boot). Si el frontend se sirve desde otro host/puerto, coloca aqui la
+// URL del backend, por ejemplo: "http://localhost:8080".
+const API_BASE = "";
 
 // Función para mostrar alertas con Bootstrap
 function mostrarAlerta(mensaje, tipo) {
@@ -61,31 +67,6 @@ function validarTelefono(telefono) {
         mostrarAlerta("El teléfono solo debe contener números.", "danger"); // Muestra alerta de error
         return false; // Retorna falso
     }
-    // valida que no se repitan numeros 
-    if (/^(\d)\1{9}$/.test(telefono)) {
-        mostrarAlerta("El número de telefono es inválido (dígitos repetidos).", "danger");
-        return false;
-    }
-
-    // valida que no se escriban secuencias acendentes o descendentes
-    for (let i = 0; i < telefono.length - 2; i++) { // Recorre el arreglo y de se detiene dos digitos antes
-        const a = parseInt(telefono[i]);      //analizamos por grupos de tres (por eso el -2)
-        const b = parseInt(telefono[i + 1]);  
-        const c = parseInt(telefono[i + 2]);
-
-        // Validamos si es Ascendente
-        if (b === a + 1 && c === b + 1){
-             mostrarAlerta("El numero que ingreso es invalido.", "danger");
-            return false;
-        } 
-        
-        // Validamos si es Descendente
-        if (b === a - 1 && c === b - 1){
-            mostrarAlerta("El teléfono que ingreso es invalido.", "danger");
-           return false; 
-        } 
-    }
-
 
     if (telefono.length !== 10) { // Valida que tenga exactamente 10 dígitos
         mostrarAlerta("El teléfono debe tener exactamente 10 dígitos.", "danger"); // Muestra alerta de error
@@ -109,13 +90,8 @@ function validarEmail(email) {
         return false; // Retorna falso
     }
 
-    // Valida que el email no esté ya registrado
-    const emailExistente = usuarios.find(u => u.email === email); // Busca si ya existe un usuario con ese email
-    if (emailExistente) { // Si encuentra un email repetido
-        mostrarAlerta("Este email ya está registrado.", "warning"); // Muestra alerta de advertencia
-        return false; // Retorna falso
-    }
-
+    // La unicidad del email la valida el backend (findByEmail); aquí solo se
+    // comprueba el formato.
     return true; // Si pasa todas las validaciones retorna verdadero
 }
 
@@ -152,8 +128,8 @@ function validarPassword(password) {
     return true; // Si pasa todas las validaciones retorna verdadero
 }
 
-// Función principal que registra al usuario
-function registrarUsuario(event) {
+// Función principal que registra al usuario contra el backend
+async function registrarUsuario(event) {
     event.preventDefault(); // Evita que el formulario se envíe y recargue la página
 
     // Obtiene los valores de cada campo del formulario
@@ -168,21 +144,40 @@ function registrarUsuario(event) {
     if (!validarEmail(email)) return; // Si el email no es válido, detiene la función
     if (!validarPassword(password)) return; // Si la contraseña no es válida, detiene la función
 
-    // Si todas las validaciones pasan, crea el objeto usuario
+    // Objeto que espera el backend. El campo se llama "pass" para coincidir con
+    // el modelo Usuario del backend.
     const usuario = {
-        nombre: nombre, // Guarda el nombre completo
-        telefono: telefono, // Guarda el teléfono
-        email: email, // Guarda el email
-        password: password, // Guarda la contraseña
-        fechaRegistro: new Date().toLocaleString() // Guarda la fecha y hora del registro
+        nombre: nombre,
+        telefono: telefono,
+        email: email,
+        pass: password
     };
 
-    usuarios.push(usuario); // Agrega el usuario al arreglo de usuarios
-    localStorage.setItem("usuariosRegistrados", JSON.stringify(usuarios)); // Guarda el arreglo actualizado en localStorage
+    try {
+        const respuesta = await fetch(`${API_BASE}/api/usuarios/`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(usuario)
+        });
 
-    mostrarAlerta("¡Usuario registrado correctamente!", "success"); // Muestra alerta de éxito
+        if (!respuesta.ok) { // Error del servidor (500, etc.)
+            mostrarAlerta("Ocurrió un error en el servidor. Intenta más tarde.", "danger");
+            return;
+        }
 
-    document.querySelector(".form-box").reset(); // Limpia todos los campos del formulario
+        // El backend responde con el usuario creado (JSON) o con cuerpo vacío
+        // cuando el email ya está registrado.
+        const texto = await respuesta.text();
+        if (!texto) {
+            mostrarAlerta("Este email ya está registrado.", "warning");
+            return;
+        }
+
+        mostrarAlerta("¡Usuario registrado correctamente!", "success"); // Muestra alerta de éxito
+        document.querySelector(".form-box").reset(); // Limpia todos los campos del formulario
+    } catch (error) {
+        mostrarAlerta("No se pudo conectar con el servidor. Verifica que el backend esté en ejecución.", "danger");
+    }
 }
 
 // Espera a que el DOM esté cargado para agregar el evento al formulario

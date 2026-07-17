@@ -1,183 +1,105 @@
-<!DOCTYPE html> <!-- Indica que el documento usa HTML5 -->
-
-<html lang="es"> <!-- Inicia el documento HTML y define el idioma español -->
-
-<head> <!-- Inicia la sección de configuración de la página -->
-
-    <meta charset="UTF-8"> <!-- Permite usar caracteres especiales como ñ, acentos y símbolos -->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsive en celulares y tablets -->
-
-    <title>Green-Nova — Añadir Producto</title> <!-- Define el título que aparece en la pestaña del navegador -->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" /> <!-- Importa Bootstrap CSS para usar estilos y componentes -->
-
-    <link rel="stylesheet" href="../css/styles.css" /> <!-- Conecta tu archivo CSS personalizado -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" /> <!-- Prepara la conexión con Google Fonts para cargar más rápido -->
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> <!-- Prepara la conexión con el servidor de fuentes de Google -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@800&display=swap" /> <!-- Importa la fuente Arima Madurai -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap" /> <!-- Importa la fuente Work Sans -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" /> <!-- Importa la fuente Inter -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" /> <!-- Importa la fuente Mulish -->
-
-</head> <!-- Cierra la sección head -->
-
-<body> <!-- Inicia el cuerpo visible de la página -->
-
-    <section class="registro-hero"> <!-- Crea una sección principal para el formulario de registro -->
-
-        <div id="alertas"></div> <!-- Contenedor donde se mostrarán alertas de Bootstrap -->
-
-        <div class="figma-container shadow-lg"> <!-- Contenedor principal con sombra grande -->
-
-            <h2 class="text-center mb-4 text-uppercase">Añadir un Nuevo Producto</h2> <!-- Título centrado, con margen inferior y texto en mayúsculas -->
-
-            <div class="figma-inner-card shadow-sm"> <!-- Tarjeta interna con sombra pequeña -->
-
-                <form id="formRegistroProducto" class="needs-validation" novalidate> <!-- Formulario con validación personalizada de Bootstrap -->
-
-                    <div class="row"> <!-- Crea una fila de Bootstrap -->
-
-                        <div class="col-md-6 mb-3"> <!-- Columna que ocupa 6 espacios en pantallas medianas y tiene margen inferior -->
-
-                            <label for="idProducto" class="form-label">Id Producto *</label> <!-- Etiqueta del campo ID del producto -->
-
-                            <input type="text" class="form-control" id="idProducto" required placeholder="Ej. GN-1001"> <!-- Campo de texto obligatorio para escribir el ID -->
-
-                            <div class="invalid-feedback">Por favor, ingresa o verifica el ID del producto.</div> <!-- Mensaje si el campo no es válido -->
-
-                        </div> <!-- Cierra la columna del ID -->
-
-                        <div class="col-md-6 mb-3"> <!-- Segunda columna de la fila -->
-
-                            <label for="nombreProducto" class="form-label">Nombre del Producto *</label> <!-- Etiqueta del nombre del producto -->
-
-                            <input type="text" class="form-control" id="nombreProducto" required placeholder="Ej. Maceta Biodegradable"> <!-- Campo obligatorio para el nombre -->
-
-                            <div class="invalid-feedback">Por favor, ingresa el nombre del producto.</div> <!-- Mensaje de error si no se escribe el nombre -->
-
-                        </div> <!-- Cierra la columna del nombre -->
-
-                    </div> <!-- Cierra la primera fila -->
-
-                    <div class="row"> <!-- Crea una nueva fila -->
-
-                        <div class="col-md-6 mb-3"> <!-- Columna para el tipo de producto -->
-
-                            <label for="tipoProducto" class="form-label">Tipo de Producto *</label> <!-- Etiqueta del select -->
-
-                            <select class="form-select" id="tipoProducto" required> <!-- Lista desplegable obligatoria -->
-
-                                <option value="" selected disabled>Seleccione...</option> <!-- Opción inicial deshabilitada -->
-
-                                <option value="Interior">Interior</option> <!-- Opción Interior -->
-
-                                <option value="Exterior">Exterior</option> <!-- Opción Exterior -->
-
-                                <option value="Macetas">Macetas</option> <!-- Opción Macetas -->
-
-                                <option value="Accesorio">Accesorio</option> <!-- Opción Accesorio -->
-
-                                <option value="suculentas">suculentas</option> <!-- Opción Suculentas -->
-
-                                <option value="catus">catus</option> <!-- Opción Cactus, aunque aquí está escrito como catus -->
-
-                            </select> <!-- Cierra la lista desplegable -->
-
-                            <div class="invalid-feedback">Selecciona una categoría válida.</div> <!-- Mensaje si no selecciona categoría -->
-
-                        </div> <!-- Cierra la columna del tipo -->
-
-                        <div class="col-md-6 mb-3"> <!-- Columna para el precio -->
-
-                            <label for="precioProducto" class="form-label">Precio (MXN) *</label> <!-- Etiqueta del precio -->
-
-                            <input type="number" step="0.01" min="0.01" class="form-control" id="precioProducto" required placeholder="$0.00"> <!-- Campo numérico obligatorio para precio -->
-
-                            <div class="invalid-feedback">Ingresa un precio válido.</div> <!-- Mensaje si el precio no es válido -->
-
-                        </div> <!-- Cierra la columna del precio -->
-
-                    </div> <!-- Cierra la segunda fila -->
-
-                    <div class="mb-3"> <!-- Contenedor con margen inferior -->
-
-                        <label for="imagenProducto" class="form-label">Agregar Imagen *</label> <!-- Etiqueta para subir imagen -->
-
-                        <input class="form-control" type="file" id="imagenProducto" accept="image/*" required> <!-- Campo para seleccionar solo archivos de imagen -->
-
-                        <div class="invalid-feedback">Por favor, selecciona una imagen para el producto.</div> <!-- Mensaje si no se selecciona imagen -->
-
-                    </div> <!-- Cierra el bloque de imagen -->
-
-                    <h5 class="mt-4 mb-3 fw-bold text-secondary" style="font-size: 0.95rem; font-family: var(--font-inter);">Detalles del Cuidado y Descripción</h5> <!-- Subtítulo de la sección de detalles -->
-
-                    <div class="row"> <!-- Nueva fila para luz y riego -->
-
-                        <div class="col-md-6 mb-3"> <!-- Columna para requerimiento de luz -->
-
-                            <label for="luzProducto" class="form-label">Requerimiento de Luz</label> <!-- Etiqueta del campo luz -->
-
-                            <input type="text" class="form-control" id="luzProducto" placeholder="Ej. Sol directo, Sombra"> <!-- Campo para escribir la luz necesaria -->
-
-                        </div> <!-- Cierra la columna de luz -->
-
-                        <div class="col-md-6 mb-3"> <!-- Columna para riego -->
-
-                            <label for="riegoProducto" class="form-label">Frecuencia de Riego</label> <!-- Etiqueta del campo riego -->
-
-                            <input type="text" class="form-control" id="riegoProducto" placeholder="Ej. 2 veces por semana"> <!-- Campo para escribir la frecuencia de riego -->
-
-                        </div> <!-- Cierra la columna de riego -->
-
-                    </div> <!-- Cierra la fila de luz y riego -->
-
-                    <div class="mb-3"> <!-- Contenedor para función o beneficio -->
-
-                        <label for="funcionProducto" class="form-label">Función / Beneficio</label> <!-- Etiqueta del campo beneficio -->
-
-                        <input type="text" class="form-control" id="funcionProducto" placeholder="Ej. Purifica el aire, Decoración de interiores"> <!-- Campo para escribir beneficio -->
-
-                    </div> <!-- Cierra el bloque de beneficio -->
-
-                    <div class="mb-4"> <!-- Contenedor para descripción corta -->
-
-                        <label for="descripcionCorta" class="form-label">Descripción Corta</label> <!-- Etiqueta del textarea -->
-
-                        <textarea class="form-control" id="descripcionCorta" rows="3" placeholder="Breve reseña introductoria del producto..."></textarea> <!-- Área de texto para descripción -->
-
-                    </div> <!-- Cierra el bloque de descripción -->
-
-                    <div class="pt-2"> <!-- Contenedor con padding superior -->
-
-                        <button type="button" class="btn btn-success" onclick="guardarProducto()">Guardar producto</button> <!-- Botón que ejecuta la función guardarProducto al hacer clic -->
-
-                    </div> <!-- Cierra el contenedor del botón -->
-
-                </form> <!-- Cierra el formulario -->
-
-            </div> <!-- Cierra la tarjeta interna -->
-
-        </div> <!-- Cierra el contenedor principal -->
-
-    </section> <!-- Cierra la sección principal -->
-
-    <pre id="resultadoJSON" class="bg-light p-3"></pre> <!-- Muestra texto o JSON formateado en pantalla -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> <!-- Importa Bootstrap JS para componentes interactivos -->
-
-    <script src="../scripts/cards.js"></script> <!-- Conecta el archivo JavaScript cards.js -->
-
-    <script src="../scripts/elements.js"></script> <!-- Conecta el archivo JavaScript elements.js -->
-
-    <script src="../scripts/registroProducto.js"></script> <!-- Conecta el archivo JS donde probablemente está la función guardarProducto -->
-
-</body> <!-- Cierra el cuerpo de la página -->
-
-</html> <!-- Cierra el documento HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green-Nova — Añadir Producto</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" />
+</head>
+<body>
+
+    
+
+    <section class="registro-hero">
+             <div id="alertas"></div> <!-- Aquí se mostrarán las alertas de Bootstrap -->
+
+        <div class="figma-container shadow-lg">
+            <h2 class="text-center mb-4 text-uppercase">Añadir un Nuevo Producto</h2>
+            
+            <div class="figma-inner-card shadow-sm">
+                <form id="formRegistroProducto" class="needs-validation" novalidate>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="idProducto" class="form-label">Id Producto *</label>
+                            <input type="text" class="form-control" id="idProducto" required placeholder="Ej. GN-1001">
+                            <div class="invalid-feedback">Por favor, ingresa o verifica el ID del producto.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="nombreProducto" class="form-label">Nombre del Producto *</label>
+                            <input type="text" class="form-control" id="nombreProducto" required placeholder="Ej. Maceta Biodegradable">
+                            <div class="invalid-feedback">Por favor, ingresa el nombre del producto.</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="tipoProducto" class="form-label">Tipo de Producto *</label>
+                            <select class="form-select" id="tipoProducto" required>
+                                <option value="" selected disabled>Seleccione...</option>
+                                <option value="Interior">Interior</option>
+                                <option value="Exterior">Exterior</option>
+                                <option value="Macetas">Macetas</option>
+                                <option value="Accesorio">Accesorio</option>
+                                <option value="suculentas">suculentas</option>
+                                <option value="catus">catus</option>
+                            </select>
+                            <div class="invalid-feedback">Selecciona una categoría válida.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="precioProducto" class="form-label">Precio (MXN) *</label>
+                            <input type="number" step="0.01" min="0.01" class="form-control" id="precioProducto" required placeholder="$0.00">
+                            <div class="invalid-feedback">Ingresa un precio válido.</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="imagenProducto" class="form-label">Agregar Imagen *</label>
+                        <input class="form-control" type="file" id="imagenProducto" accept="image/*" required>
+                        <div class="invalid-feedback">Por favor, selecciona una imagen para el producto.</div>
+                    </div>
+
+                    <h5 class="mt-4 mb-3 fw-bold text-secondary" style="font-size: 0.95rem; font-family: var(--font-inter);">Detalles del Cuidado y Descripción</h5>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="luzProducto" class="form-label">Requerimiento de Luz</label>
+                            <input type="text" class="form-control" id="luzProducto" placeholder="Ej. Sol directo, Sombra">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="riegoProducto" class="form-label">Frecuencia de Riego</label>
+                            <input type="text" class="form-control" id="riegoProducto" placeholder="Ej. 2 veces por semana">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="funcionProducto" class="form-label">Función / Beneficio</label>
+                        <input type="text" class="form-control" id="funcionProducto" placeholder="Ej. Purifica el aire, Decoración de interiores">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="descripcionCorta" class="form-label">Descripción Corta</label>
+                        <textarea class="form-control" id="descripcionCorta" rows="3" placeholder="Breve reseña introductoria del producto..."></textarea>
+                    </div>
+
+                    <div class="pt-2">                        
+                        <button type="button" class="btn btn-success" onclick="guardarProducto()">Guardar producto</button> <!-- Botón para guardar -->                    
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+    <pre id="resultadoJSON" class="bg-light p-3"></pre>
+    <script src="registroProducto.js"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package greennova.backend.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -25,7 +26,9 @@ public class Usuario {
     @Column(name = "pass", nullable = false)
     private String pass;
 
-    // Relación: Un usuario tiene muchos pedidos
+    // Relación: Un usuario tiene muchos pedidos.
+    // @JsonIgnore evita la recursión infinita al serializar (Usuario -> pedidos -> usuario -> ...).
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
 
