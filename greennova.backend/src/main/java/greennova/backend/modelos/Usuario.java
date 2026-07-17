@@ -1,38 +1,47 @@
 package greennova.backend.modelos;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "usuario")
 public class Usuario {
-private long idUsuario;
-private static long total = 0L;
-private String nombre;
-private String telefono;
-private String email;
-private String password;
 
-public  Usuario(){
-}//constructor vacio
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "usuarioId", unique = true, nullable = false)
+    private Long id;
 
-public  Usuario(String nombre, String telefono, String email, String password){
-    Usuario.total++;
-    this.idUsuario=Usuario.total;
-    this.nombre = nombre;
-    this.telefono = telefono;
-    this.email = email;
-    this.password = password;
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
 
-}//constructor
+    @Column(name = "telefono", nullable = false)
+    private String telefono;
+
+    @Column(name = "email", nullable = false)
+    private String email;
+
+    @Column(name = "pass", nullable = false)
+    private String pass;
+
+    public  Usuario(String nombre, String telefono, String email, String pass){
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.email = email;
+        this.pass = pass;
+    }//constructor Usuario
+
+    public  Usuario(){
+    }//constructor vacio
+
 
     public long getId() {
-        return idUsuario;
-    }
-
-    public void setId(long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+        return id;
+    }//getId
 
 
     public String getNombre() {
         return nombre;
-    }
+    }//getNombre
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -54,22 +63,22 @@ public  Usuario(String nombre, String telefono, String email, String password){
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
-                "id=" + idUsuario +
+                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+                ", pass='" + pass + '\'' +
                 '}';
     }
 }// clase Usuario

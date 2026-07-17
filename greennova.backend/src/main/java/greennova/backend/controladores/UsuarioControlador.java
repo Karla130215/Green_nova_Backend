@@ -1,5 +1,6 @@
 package greennova.backend.controladores;
 
+import greennova.backend.dto.PassDto;
 import greennova.backend.modelos.Usuario;
 import greennova.backend.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,34 +12,38 @@ import java.util.List;
 @RequestMapping("/api/usuarios")
 public class UsuarioControlador {
 
-    @Autowired
+
     private UsuarioServicio usuarioServicio;
 
-    @GetMapping
-    public List<Usuario> listarUsuarios() {
-        return usuarioServicio.obtenerTodos();
-    }
+    @Autowired
+    public UsuarioControlador(UsuarioServicio servicio) {
+        this.usuarioServicio = servicio;
+    }//constructor UsuarioControlador
 
-    @GetMapping("/{id}")
-    public Usuario obtenerUsuario(@PathVariable long id) {
-        return usuarioServicio.obtenerPorId(id);
-    }
+    @GetMapping
+    public List<Usuario> getUsuarios() {
+        return usuarioServicio.getUsuarios();
+    }//getUsuarios
+
+    @GetMapping("{usuarioId}")
+    public Usuario getUsuario(@PathVariable("usuarioId") Long id) {
+        return usuarioServicio.getUsuario(id);
+    }//getUsuarioId
+
+    @DeleteMapping(path = "{usuarioId}")
+    public Usuario deleteUsuario(@PathVariable("usuarioId") Long id){
+        return usuarioServicio.deleteUsuario(id);
+    }//deleteUsuario Elimina usuario por Id coincidente
+
 
     @PostMapping
     public Usuario crearUsuario(@RequestBody Usuario usuario) {
-        return usuarioServicio.guardar(usuario);
-    }
+        return usuarioServicio.crearUsuario(usuario);
+    }//crearUsuario
 
-    @PutMapping("/{id}")
-    public Usuario actualizarUsuario(@PathVariable long id, @RequestBody Usuario usuario) {
-        return usuarioServicio.actualizar(id, usuario);
-    }
-
-    @DeleteMapping("/{id}")
-    public String eliminarUsuario(@PathVariable long id) {
-        if (usuarioServicio.eliminar(id)) {
-            return "Usuario eliminado con éxito.";
-        }
-        return "Usuario no encontrado.";
-    }
-}
+    @PutMapping(path = "{usuarioId}")
+    public Usuario actualizarUsuario(@PathVariable("usuarioId") Long id,
+                                     @RequestBody PassDto dto) {
+        return usuarioServicio.actualizarUsuario(id, dto);
+    }//actualizarUsuario
+}//class UsuarioControlador
