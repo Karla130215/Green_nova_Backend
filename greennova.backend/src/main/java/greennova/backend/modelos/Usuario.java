@@ -11,6 +11,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //, unique = true, nullable = false
     @Column(name = "usuarioId", unique = true, nullable = false)
     private Long id;
 
